@@ -1,0 +1,113 @@
+.group_container {
+  display: flex;
+  align-items: stretch;
+  border-top: #e5ecfc 1px solid;
+
+  .group_setting_box {
+    width: 50%;
+    height: 520px;
+    overflow-y: auto;
+
+    &:last-child {
+      border-left: solid 1px #e5ecfc;
+    }
+
+    .box_title {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      font-size: 16px;
+      border-bottom: solid 1px #e5ecfc;
+      margin-bottom: 20px;
+
+      .control_item {
+        font-size: 20px;
+        color: #999999;
+        cursor: pointer;
+      }
+    }
+
+    .input_box {
+      margin-bottom: 20px;
+      padding: 0 20px;
+    }
+
+    .list_box {
+
+      .list_item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 42px;
+        padding: 0 20px;
+        cursor: pointer;
+
+        &:hover {
+          background: #f2f5f9;
+
+          .control_box {
+            display: block;
+          }
+        }
+
+        &.active {
+          background: #eaf3ff;
+        }
+
+        .text {
+          font-size: 14px;
+          color: #666666;
+          flex-grow: 1;
+          height: 42px;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          .portrait {
+            width: 28px;
+            height: 28px;
+            color: #ffffff;
+            font-size: 10px;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+          }
+        }
+
+        .control_box {
+          display: none;
+        }
+
+        .input_item {
+          width: 100%;
+        }
+      }
+    }
+
+    .member_control {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 42px;
+      padding: 0 20px;
+
+      .control_item {
+        color: #348fe4;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+
+:deep(.el-dialog__body) {
+  padding: 0 !important;
+}

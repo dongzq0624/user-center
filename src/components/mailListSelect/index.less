@@ -1,0 +1,214 @@
+.mail_list {
+  width: 100%;
+  position: relative;
+
+  .member_clear {
+    z-index: 50;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    color: #999999;
+    opacity: .5;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    .member_clear {
+      display: block;
+    }
+  }
+
+  .mail_list_box {
+    .selected_list {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+
+      .selected_item {
+        display: flex;
+        align-items: center;
+
+        .item_portrait {
+          flex: 1;
+
+          .portrait_box {
+            width: 36px;
+            height: 36px;
+            border-radius: 18px;
+            font-size: 12px;
+            color: #ffffff;
+            background-color: #73D7B5;
+            text-align: center;
+            line-height: 36px;
+
+            &.male {
+              background-color: #7766E7;
+            }
+
+            &.female {
+              background-color: #F348DD;
+            }
+          }
+
+          .default_portrait {
+            width: 36px;
+            height: 36px;
+            border-radius: 18px;
+            font-size: 16px;
+            border: 1px dashed #DCDFE6;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+
+        .item_content {
+          padding-left: 10px;
+
+          .item_title,
+          .item_placeholder {
+            font-size: 14px;
+            color: #C0C4CC;
+            line-height: 18px;
+          }
+
+          .item_title {
+            font-size: 12px;
+          }
+
+          .item_name {
+            font-size: 14px;
+            color: #303133;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+
+    .member_input {
+      position: relative;
+
+    }
+  }
+
+}
+
+
+
+.member_list {
+  width: 100%;
+
+  .member_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f2f2f2;
+    }
+
+    .member_info {
+      display: flex;
+      align-items: center;
+
+      .member_portrait {
+        width: 28px;
+        height: 28px;
+        border-radius: 14px;
+        font-size: 12px;
+        color: #ffffff;
+        background-color: #73D7B5;
+        text-align: center;
+        line-height: 28px;
+        margin-right: 7px;
+
+
+        &.male {
+          background-color: #7766E7;
+        }
+
+        &.female {
+          background-color: #F348DD;
+        }
+      }
+
+      .member_name {
+        font-size: 14px;
+        color: #303133;
+      }
+
+      .is_self {
+        font-size: 10px;
+        color: #909399;
+        padding: 0 10px;
+      }
+    }
+
+    .selected {
+      font-size: 14px;
+      color: #1890FF;
+    }
+  }
+}
+
+.member_select {
+  margin: 0 -12px 0;
+
+  .search_box {
+    padding: 0 20px 10px;
+  }
+
+  .tab_row {
+    position: relative;
+
+    .tab_box {
+      padding: 0 20px 0;
+      flex-grow: 1;
+
+      .tab_item {
+        min-height: 200px;
+        max-height: 500px;
+        overflow-y: auto;
+      }
+    }
+
+    .setting_box {
+      position: absolute;
+      right: 20px;
+      top: 7px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  }
+}
+
+.member_tree {
+  .el-submenu__title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-left: 0 !important;
+
+    .el-submenu__icon-arrow {
+      right: 0
+    }
+  }
+
+  .el-menu {
+    border-right: none !important;
+  }
+
+  .tree_content {
+    padding-left: 15px;
+
+  }
+}
