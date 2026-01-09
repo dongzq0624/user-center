@@ -38,7 +38,12 @@
             />
           </el-form-item>
           <el-form-item>
-            <el-button icon="el-icon-search" type="primary" @click="queryData">
+            <el-button
+              class="search-btn"
+              icon="el-icon-search"
+              type="primary"
+              @click="queryData"
+            >
               查询
             </el-button>
           </el-form-item>
@@ -225,3 +230,16 @@
     },
   }
 </script>
+
+<style lang="scss" scoped>
+  .search-btn {
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(64, 158, 255, 0.3);
+    }
+  }
+</style>

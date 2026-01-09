@@ -13,6 +13,7 @@
     "template": "plop"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^6.1.0",
     "@riophae/vue-treeselect": "^0.4.0",
     "ant-design-vue": "^1.7.8",
     "axios": "^0.24.0",
@@ -40,9 +41,6 @@
     "resize-detector": "^0.3.0",
     "screenfull": "5.2.0",
     "sortablejs": "^1.15.0",
-    "vab-contextmenu": "^0.0.1",
-    "vab-icons": "^0.0.23",
-    "vab-quill": "^0.0.4",
     "view-design": "^4.7.0",
     "vue": "^2.6.14",
     "vue-amap": "^0.5.10",
@@ -88,7 +86,6 @@
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recess-order": "^3.0.0",
     "svg-sprite-loader": "^6.0.11",
-    "vab-templates": "^0.0.5",
     "vue-eslint-parser": "^8.0.1",
     "vue-loader": "^15.9.8",
     "vue-markdown-loader": "^2.5.0",

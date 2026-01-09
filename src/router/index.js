@@ -46,7 +46,7 @@ export const constantRoutes = [
 
 export const asyncRoutes = [
   {
-    path: '/userCenter',
+    path: '/user-center',
     name: 'userCenter',
     component: projectLayout,
     meta: {
@@ -55,7 +55,7 @@ export const asyncRoutes = [
     },
     children: [
       {
-        path: 'personalCenter',
+        path: 'personal-center',
         name: 'PersonalCenter',
         component: () => import('@/views/setting/personalCenter'),
         meta: {
@@ -69,7 +69,7 @@ export const asyncRoutes = [
   },
   //配置
   {
-    path: '/userManagement',
+    path: '/user-management',
     name: 'Index',
     component: projectLayout,
     meta: {
@@ -79,7 +79,7 @@ export const asyncRoutes = [
     },
     children: [
       {
-        path: 'index',
+        path: '/',
         name: 'UserManagementIndex',
         component: () => import('@/views/setting/userManagement'),
         // component: () => import('@/views/rule/components/easy-flow/panel'),
@@ -90,7 +90,7 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: '/departmentManagement',
+    path: '/department-management',
     name: 'DepartmentManagement',
     component: projectLayout,
     meta: {
@@ -100,7 +100,7 @@ export const asyncRoutes = [
     },
     children: [
       {
-        path: 'index',
+        path: '/',
         name: 'DepartmentManagementIndex',
         component: () => import('@/views/setting/departmentManagement'),
         meta: {
@@ -207,7 +207,7 @@ export const asyncRoutes = [
   },
   {
     path: '/',
-    redirect: '/userManagement',
+    redirect: '/user-management',
     name: 'NotFound',
     meta: {
       hidden: true,

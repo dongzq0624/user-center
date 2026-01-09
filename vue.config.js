@@ -17,7 +17,6 @@ const {
   buildGzip,
   imageCompression,
 } = require('./src/config')
-const rely = require('vue-plugin-rely')
 const { webpackBarName, webpackBanner } = require('./vab.config')
 const { version, author } = require('./package.json')
 const Webpack = require('webpack')
@@ -32,7 +31,6 @@ process.env.VUE_APP_AUTHOR = author
 process.env.VUE_APP_RANDOM = `${dayjs()}-${process.env.VUE_GITHUB_USER_NAME}`
 process.env.VUE_APP_UPDATE_TIME = dateTime
 process.env.VUE_APP_VERSION = version
-process.env.VUE_APP_RELY = rely
 const resolve = (dir) => {
   return path.join(__dirname, dir)
 }

@@ -740,7 +740,7 @@
         }
 
         .search-btn {
-          border-radius: 6px;
+          border-radius: 20px;
           font-weight: 500;
           background: linear-gradient(45deg, #409eff, #66b1ff);
           border: none;

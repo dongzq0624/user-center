@@ -9,7 +9,7 @@
       <span class="logo">
         <!-- 使用自定义svg示例 -->
         <!-- <vab-icon v-if="logo" :icon="logo" is-custom-svg /> -->
-        <img alt="" src="@/assets/my_logo.jpg" />
+        <img alt="" class="logo-img" src="@/assets/logo.png" />
       </span>
       <span
         class="title"
@@ -47,8 +47,8 @@
 
   @mixin logo {
     display: inline-block;
-    width: 32px;
-    height: 32px;
+    width: 76px;
+    height: 64px;
     color: $base-title-color;
     vertical-align: middle;
   }
@@ -75,6 +75,10 @@
         img {
           @include logo;
         }
+        .logo-img {
+          width: 45px;
+          object-fit: contain;
+        }
       }
 
       .title {
@@ -96,6 +100,10 @@
         svg,
         img {
           @include logo;
+        }
+        .logo-img {
+          width: 45px;
+          object-fit: contain;
         }
       }
 
