@@ -156,7 +156,12 @@
                 </div>
               </template>
             </el-table-column>
-            <el-table-column align="center" label="性别" show-overflow-tooltip>
+            <el-table-column
+              align="center"
+              label="性别"
+              show-overflow-tooltip
+              width="80"
+            >
               <template #default="{ row }">
                 <el-tag
                   class="gender-tag"
@@ -812,6 +817,7 @@
         .email-cell {
           display: flex;
           align-items: center;
+          justify-content: center;
           gap: 6px;
 
           i {
@@ -822,6 +828,10 @@
 
         .gender-tag {
           font-size: 12px;
+          width: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           i {
             margin-right: 4px;
@@ -831,6 +841,9 @@
         .status-tag {
           font-size: 12px;
           font-weight: 500;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           i {
             margin-right: 4px;
@@ -843,6 +856,7 @@
             flex-wrap: wrap;
             gap: 2px;
             justify-content: center;
+            align-items: center;
           }
 
           .op-btn {
