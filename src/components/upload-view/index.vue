@@ -1,10 +1,10 @@
 <template>
   <div :class="limit == value.length || hideUpload ? 'hide' : ''">
     <el-upload
+      :accept="accept"
       :action="uploadUrl"
       :before-upload="beforeAvatarUpload"
       class="avatar-uploader"
-      :accept="accept"
       :file-list="value.length == 1 && value[0] == undefined ? [] : value"
       :headers="{ xc_sso_sessionid: xc_sso_sessionid }"
       :limit="limit"
@@ -112,7 +112,7 @@
       onUploadFail() {
         this.hideUpload = false
       },
-      beforeAvatarUpload(file) {
+      beforeAvatarUpload() {
         if (this.value.length + 1 == this.limit) {
           this.hideUpload = true
         }

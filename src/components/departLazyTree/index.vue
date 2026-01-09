@@ -13,7 +13,7 @@
   />
 </template>
 <script>
-  import { organLazyTreeList as getList } from '@/api/systemManage/departmentManagement'
+  import { organLazyTreeList as getList } from '@/api/department/departmentManagement'
   export default {
     name: 'DepartLazyTree',
     props: {

@@ -87,7 +87,7 @@ export function getClientToken() {
  * @param token
  * @returns {void|*}
  */
-export function setClientToken(token, validTime) {
+export function setClientToken(token) {
   if (storage) {
     if ('localStorage' === storage) {
       return localStorage.setItem(tokenTableName + 'client', token)

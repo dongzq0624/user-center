@@ -113,7 +113,7 @@
 </template>
 
 <script>
-  import { getList } from '@/api/systemLog'
+  import { getList } from '@/api/maintain/systemLog'
 
   export default {
     name: 'SystemLog',

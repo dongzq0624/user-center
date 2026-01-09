@@ -69,48 +69,6 @@ export const asyncRoutes = [
   },
   //配置
   {
-    path: '/user-management',
-    name: 'Index',
-    component: projectLayout,
-    meta: {
-      title: '用户',
-      icon: 'user-3-line',
-      permissionId: 'system_userManager_read',
-    },
-    children: [
-      {
-        path: '/',
-        name: 'UserManagementIndex',
-        component: () => import('@/views/setting/userManagement'),
-        // component: () => import('@/views/rule/components/easy-flow/panel'),
-        meta: {
-          noColumn: true,
-        },
-      },
-    ],
-  },
-  {
-    path: '/department-management',
-    name: 'DepartmentManagement',
-    component: projectLayout,
-    meta: {
-      title: '组织',
-      icon: 'organization-chart',
-      permissionId: 'system_organManager_read',
-    },
-    children: [
-      {
-        path: '/',
-        name: 'DepartmentManagementIndex',
-        component: () => import('@/views/setting/departmentManagement'),
-        meta: {
-          noColumn: true,
-        },
-      },
-    ],
-  },
-
-  {
     path: '/application',
     name: 'application',
     component: projectLayout,
@@ -148,6 +106,48 @@ export const asyncRoutes = [
           title: '角色管理',
           icon: 'admin-line',
           permissionId: 'system_roleManager_read',
+        },
+      },
+    ],
+  },
+  
+  {
+    path: '/department-management',
+    name: 'DepartmentManagement',
+    component: projectLayout,
+    meta: {
+      title: '组织',
+      icon: 'organization-chart',
+      permissionId: 'system_organManager_read',
+    },
+    children: [
+      {
+        path: '',
+        name: 'DepartmentManagementIndex',
+        component: () => import('@/views/setting/departmentManagement'),
+        meta: {
+          noColumn: true,
+        },
+      },
+    ],
+  },
+  {
+    path: '/user-management',
+    name: 'Index',
+    component: projectLayout,
+    meta: {
+      title: '用户',
+      icon: 'user-3-line',
+      permissionId: 'system_userManager_read',
+    },
+    children: [
+      {
+        path: '',
+        name: 'UserManagementIndex',
+        component: () => import('@/views/setting/userManagement'),
+        // component: () => import('@/views/rule/components/easy-flow/panel'),
+        meta: {
+          noColumn: true,
         },
       },
     ],

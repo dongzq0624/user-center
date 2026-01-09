@@ -1,19 +1,19 @@
 <template>
   <el-dialog
+    class="user-role-edit-dialog"
     :close-on-click-modal="false"
     :title="title"
     :visible="dialogFormVisible"
     width="1000px"
-    class="user-role-edit-dialog"
     @close="close"
   >
     <div class="dialog-content">
       <!-- 操作按钮区域 -->
       <div class="action-section">
         <el-button
+          class="add-role-btn"
           icon="el-icon-plus"
           type="primary"
-          class="add-role-btn"
           @click="roleOnAdd"
         >
           新增角色配置
@@ -24,28 +24,28 @@
       <div class="role-table-container">
         <el-table
           border
-          :data="userRoles"
-          stripe
           class="role-table"
+          :data="userRoles"
+          :empty-text="'暂无角色配置'"
           :header-cell-style="headerCellStyle"
           :row-style="rowStyle"
-          :empty-text="'暂无角色配置'"
+          stripe
         >
           <el-table-column
             align="center"
+            class-name="application-column"
             label="应用"
             min-width="200"
-            class-name="application-column"
           >
-            <template #default="{ row, $index }">
+            <template #default="{ row }">
               <div class="application-cell">
                 <i class="el-icon-s-grid app-icon"></i>
                 <el-select
                   v-model="row.applicationId"
-                  clearable
-                  placeholder="请选择应用"
                   class="app-select"
+                  clearable
                   filterable
+                  placeholder="请选择应用"
                   @change="(e) => getRoleList(e, row)"
                   @clear="(e) => appOnClear(e, row)"
                 >
@@ -74,20 +74,20 @@
 
           <el-table-column
             align="center"
+            class-name="role-column"
             label="角色"
             min-width="200"
-            class-name="role-column"
           >
             <template #default="{ row }">
               <div class="role-cell">
                 <i class="el-icon-user role-icon"></i>
                 <el-select
                   v-model="row.roleId"
+                  class="role-select"
                   clearable
+                  filterable
                   :no-data-text="'请先选择应用'"
                   placeholder="请选择角色"
-                  class="role-select"
-                  filterable
                 >
                   <el-option
                     v-for="item in row.roleList"
@@ -107,16 +107,16 @@
 
           <el-table-column
             align="center"
+            class-name="operation-column"
             label="操作"
             width="120"
-            class-name="operation-column"
           >
             <template #default="{ $index }">
               <div class="operation-cell">
                 <el-button
-                  type="text"
-                  size="small"
                   class="delete-btn"
+                  size="small"
+                  type="text"
                   @click="handleDelete($index)"
                 >
                   <i class="el-icon-delete"></i>
@@ -139,7 +139,7 @@
         </el-table>
 
         <!-- 统计信息 -->
-        <div class="role-stats" v-if="userRoles.length > 0">
+        <div v-if="userRoles.length > 0" class="role-stats">
           <span class="stats-text">
             <i class="el-icon-info"></i>
             已配置 {{ userRoles.filter((item) => item.roleId).length }} 个角色
@@ -150,11 +150,11 @@
 
     <template #footer>
       <div class="dialog-footer">
-        <el-button @click="close" class="cancel-btn">
+        <el-button class="cancel-btn" @click="close">
           <i class="el-icon-close"></i>
           取消
         </el-button>
-        <el-button type="primary" class="confirm-btn" @click="save">
+        <el-button class="confirm-btn" type="primary" @click="save">
           <i class="el-icon-check"></i>
           确定
         </el-button>
@@ -164,9 +164,9 @@
 </template>
 
 <script>
-  import { userRoleList, addUserRole } from '@/api/systemManage/userManagement'
-  import { getList } from '@/api/systemManage/roleManagement'
-  import { getTree } from '@/api/systemManage/applicationManagement'
+  import { userRoleList, addUserRole } from '@/api/common/userManagement'
+  import { getList } from '@/api/application/roleManagement'
+  import { getTree } from '@/api/application/applicationManagement'
   export default {
     name: 'UserRoleEdit',
     data() {
@@ -267,7 +267,7 @@
         }
       },
       // 表格行样式
-      rowStyle({ rowIndex }) {
+      rowStyle() {
         return {
           height: '60px',
         }
@@ -471,13 +471,14 @@
     .confirm-btn {
       border-radius: 6px;
       font-weight: 500;
-      background: linear-gradient(45deg, #409eff, #66b1ff);
+      background: #1890FF;
       border: none;
       transition: all 0.3s ease;
 
       &:hover {
+        background: #40a9ff;
         transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(64, 158, 255, 0.3);
+        box-shadow: 0 4px 8px rgba(24, 144, 255, 0.3);
       }
 
       i {

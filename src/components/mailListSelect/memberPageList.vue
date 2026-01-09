@@ -37,7 +37,7 @@
   </div>
 </template>
 <script>
-  import { memberList } from '@/api/components'
+  import { memberList } from '@/api/common/components'
   import { mapGetters } from 'vuex'
   export default {
     name: 'MemberSelect',

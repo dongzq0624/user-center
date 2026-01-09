@@ -62,15 +62,15 @@
           </div>
         </template>
 
-        <xc-base-table
+        <an-base-table
           ref="basicTable"
-          class="application-table"
           :async-func="fetchListFunc"
+          class="application-table"
           list-name="applicatioinList"
           :search-params="searchParams"
           :table-columns="tableColumns"
         >
-          <template slot="index" slot-scope="{ row, index }">
+          <template slot="index" slot-scope="{ index }">
             <span class="index-number">{{ index + 1 }}</span>
           </template>
 
@@ -109,26 +109,26 @@
               </el-button>
             </div>
           </template>
-        </xc-base-table>
+        </an-base-table>
       </el-card>
     </div>
 
     <!-- 自定义应用编辑弹窗 -->
     <el-dialog
+      class="application-edit-dialog"
       :close-on-click-modal="false"
       :title="dialogTitle"
       :visible="dialogVisible"
       width="700px"
-      class="application-edit-dialog"
       @close="handleDialogClose"
     >
       <div class="dialog-content">
         <el-form
           ref="formRef"
+          class="application-form"
           label-width="120px"
           :model="formData"
           :rules="formRules"
-          class="application-form"
         >
           <!-- 基本信息区域 -->
           <div class="form-section">
@@ -141,41 +141,41 @@
               <el-row :gutter="20">
                 <el-col :span="12">
                   <el-form-item
+                    class="form-item"
                     label="应用名称"
                     prop="applicationName"
-                    class="form-item"
                   >
                     <el-input
                       v-model="formData.applicationName"
-                      placeholder="请输入应用名称"
                       clearable
+                      placeholder="请输入应用名称"
                       prefix-icon="el-icon-document-copy"
                     />
                   </el-form-item>
                 </el-col>
 
                 <el-col :span="12">
-                  <el-form-item label="应用编码" prop="appId" class="form-item">
+                  <el-form-item class="form-item" label="应用编码" prop="appId">
                     <el-input
                       v-model="formData.appId"
-                      placeholder="请输入应用编码"
                       clearable
-                      prefix-icon="el-icon-price-tag"
                       :disabled="isEdit"
+                      placeholder="请输入应用编码"
+                      prefix-icon="el-icon-price-tag"
                     />
                   </el-form-item>
                 </el-col>
 
                 <el-col :span="24">
                   <el-form-item
+                    class="form-item"
                     label="应用IP"
                     prop="accessIps"
-                    class="form-item"
                   >
                     <el-input
                       v-model="formData.accessIps"
-                      placeholder="如有多个IP，则多个IP以分号（英文分号）隔开"
                       clearable
+                      placeholder="如有多个IP，则多个IP以分号（英文分号）隔开"
                       prefix-icon="el-icon-s-home"
                     />
                   </el-form-item>
@@ -183,43 +183,43 @@
 
                 <el-col :span="24">
                   <el-form-item
+                    class="form-item"
                     label="有效时间"
                     prop="dateRange"
-                    class="form-item"
                   >
                     <el-date-picker
                       v-model="formData.dateRange"
-                      type="daterange"
+                      end-placeholder="结束日期"
                       range-separator="至"
                       start-placeholder="开始日期"
-                      end-placeholder="结束日期"
-                      value-format="yyyy-MM-dd"
                       style="width: 100%"
+                      type="daterange"
+                      value-format="yyyy-MM-dd"
                     />
                   </el-form-item>
                 </el-col>
 
                 <el-col :span="24">
                   <el-form-item
+                    class="form-item"
                     label="关联区域"
                     prop="organs"
-                    class="form-item"
                   >
                     <TreeSelect
                       v-model="formData.organs"
+                      class="tree-select"
                       :clearable="true"
                       :limit="5"
                       :multiple="true"
                       :options="organTreeData"
                       placeholder="请选择关联区域"
                       value-consists-of="ALL_WITH_INDETERMINATE"
-                      class="tree-select"
                     />
                   </el-form-item>
                 </el-col>
 
                 <el-col :span="12">
-                  <el-form-item label="状态" prop="status" class="form-item">
+                  <el-form-item class="form-item" label="状态" prop="status">
                     <el-radio-group v-model="formData.status">
                       <el-radio
                         v-for="item in statusOptions"
@@ -234,18 +234,18 @@
 
                 <el-col :span="24">
                   <el-form-item
+                    class="form-item"
                     label="备注"
                     prop="description"
-                    class="form-item"
                   >
                     <el-input
                       v-model="formData.description"
-                      type="textarea"
-                      :rows="3"
-                      placeholder="请输入备注信息（可选）"
                       clearable
                       maxlength="500"
+                      placeholder="请输入备注信息（可选）"
+                      :rows="3"
                       show-word-limit
+                      type="textarea"
                     />
                   </el-form-item>
                 </el-col>
@@ -262,9 +262,9 @@
             取消
           </el-button>
           <el-button
+            class="confirm-btn"
             :loading="submitLoading"
             type="primary"
-            class="confirm-btn"
             @click="handleSubmit"
           >
             <i class="el-icon-check"></i>
@@ -275,19 +275,19 @@
     </el-dialog>
 
     <!-- 保留原有的xc-base-form-dialog作为备用 -->
-    <xc-base-form-dialog
+    <an-base-form-dialog
       ref="editRef"
       :add-func="addFunc"
       :detail-func="detailFunc"
       :handle-detail-data="handleDetailData"
-      :handle-submit-data="handleSubmitData"
       :handle-query-detail-params="handleQueryDetailParams"
+      :handle-submit-data="handleSubmitData"
       :options="formOptions"
       :show-title-prefix="true"
+      style="display: none"
       title="应用"
       width="600px"
       @ok="onFormSuccess"
-      style="display: none"
     >
       <template slot="fileList" slot-scope="{ data }">
         <upload-view v-model="data.fileList" :limit="1" />
@@ -303,7 +303,7 @@
           value-consists-of="ALL_WITH_INDETERMINATE"
         />
       </template>
-    </xc-base-form-dialog>
+    </an-base-form-dialog>
   </div>
 </template>
 
@@ -313,11 +313,11 @@
     doDelete,
     getList,
     getDetail,
-  } from '@/api/systemManage/applicationManagement'
-  import { dictListByCode } from '@/api/systemManage/dictionaryManagement'
-  import { organTree } from '@/api/systemManage/departmentManagement'
+  } from '@/api/application/applicationManagement'
+  import { dictListByCode } from '@/api/maintain/dictionaryManagement'
+  import { organTree } from '@/api/department/departmentManagement'
 
-  import { findByKey, toList, APP_STATUS, YES_OR_NO } from '@/constant/Enums'
+  import { toList, APP_STATUS } from '@/constant/Enums'
 
   export default {
     name: 'ApplicationManagement',
@@ -970,16 +970,16 @@
       overflow: hidden;
 
       .el-dialog__header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
+        background: white;
+        color: #333;
         margin: 0;
         padding: 20px 24px;
-        border-bottom: none;
+        border-bottom: 1px solid #e8e8e8;
 
         .el-dialog__title {
           font-size: 18px;
           font-weight: 600;
-          color: white;
+          color: #333;
         }
 
         .el-dialog__headerbtn {
@@ -987,11 +987,11 @@
           right: 20px;
 
           .el-dialog__close {
-            color: white;
+            color: #666;
             font-size: 20px;
 
             &:hover {
-              color: rgba(255, 255, 255, 0.8);
+              color: #1890FF;
             }
           }
         }
@@ -1160,16 +1160,17 @@
 
     .confirm-btn {
       border-radius: 8px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #1890FF;
       border: none;
       font-weight: 500;
       transition: all 0.3s ease;
       padding: 10px 24px;
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+      box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
 
       &:hover {
+        background: #40a9ff;
         transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 6px 20px rgba(24, 144, 255, 0.4);
       }
 
       &:active {

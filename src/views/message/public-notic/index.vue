@@ -287,9 +287,9 @@
     noticeSave,
     noticeDetail,
     getDictListByCode,
-  } from '@/api/message'
+  } from '@/api/common/message'
   import baseDialog from '@/components/base-dialog'
-  import { upload_url } from '@/api/project-management/file-list'
+  import { upload_url } from '@/api/common/project-management/file-list'
   import { baseURL } from '@/config'
   import 'quill/dist/quill.core.css'
   import 'quill/dist/quill.snow.css'

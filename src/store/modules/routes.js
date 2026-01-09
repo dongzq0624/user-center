@@ -3,7 +3,7 @@
  */
 import Vue from 'vue'
 import { asyncRoutes, constantRoutes, resetRouter } from '@/router'
-import { getList } from '@/api/router'
+import { getList } from '@/api/common/router'
 import { convertRouter, filterRoutes } from '@/utils/routes'
 import { authentication, rolesControl } from '@/config'
 import { isArray } from '@/utils/validate'

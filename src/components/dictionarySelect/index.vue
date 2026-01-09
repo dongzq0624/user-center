@@ -14,7 +14,7 @@
   </el-select>
 </template>
 <script>
-  import { dictListByCode } from '@/api/components'
+  import { dictListByCode } from '@/api/common/components'
   export default {
     name: 'DictSelect',
     props: {

@@ -1,19 +1,19 @@
 <template>
   <el-dialog
+    class="user-edit-dialog"
     :close-on-click-modal="false"
     :title="title + '用户'"
     :visible="dialogFormVisible"
     width="1100px"
-    class="user-edit-dialog"
     @close="close"
   >
     <div class="dialog-content">
       <el-form
         ref="formRef"
+        class="user-form"
         label-width="110px"
         :model="form"
         :rules="rules"
-        class="user-form"
       >
         <!-- 基本信息区域 -->
         <div class="form-section">
@@ -29,13 +29,13 @@
                 <div class="avatar-label">头像照片</div>
                 <el-upload
                   :action="UPLOAD_URL"
+                  :before-upload="beforeAvatarUpload"
                   class="avatar-uploader"
                   :on-success="handleAvatarSuccess"
                   :show-file-list="false"
-                  :before-upload="beforeAvatarUpload"
                 >
                   <div class="avatar-container">
-                    <img v-if="imageUrl" :src="imageUrl" class="avatar-image" />
+                    <img v-if="imageUrl" class="avatar-image" :src="imageUrl" />
                     <div v-else class="avatar-placeholder">
                       <i class="el-icon-camera"></i>
                       <span>点击上传</span>
@@ -52,11 +52,11 @@
             <div class="info-section">
               <el-row :gutter="20">
                 <el-col :lg="8" :md="12" :sm="24">
-                  <el-form-item label="姓名" prop="username" class="form-item">
+                  <el-form-item class="form-item" label="姓名" prop="username">
                     <el-input
                       v-model.trim="form.username"
-                      placeholder="请输入真实姓名"
                       clearable
+                      placeholder="请输入真实姓名"
                       prefix-icon="el-icon-user"
                     >
                       <i slot="prefix" class="el-input__icon el-icon-user"></i>
@@ -66,15 +66,15 @@
 
                 <el-col :lg="8" :md="12" :sm="24">
                   <el-form-item
+                    class="form-item"
                     label="手机号码"
                     prop="phoneNo"
-                    class="form-item"
                   >
                     <el-input
                       v-model.trim="form.phoneNo"
+                      clearable
                       :maxlength="11"
                       placeholder="请输入手机号码"
-                      clearable
                       prefix-icon="el-icon-mobile-phone"
                       @change="onPhoneNoChange"
                     />
@@ -82,12 +82,12 @@
                 </el-col>
 
                 <el-col :lg="8" :md="12" :sm="24">
-                  <el-form-item label="邮箱" prop="mail" class="form-item">
+                  <el-form-item class="form-item" label="邮箱" prop="mail">
                     <el-input
                       v-model.trim="form.mail"
+                      clearable
                       :maxlength="50"
                       placeholder="请输入邮箱地址"
-                      clearable
                       prefix-icon="el-icon-message"
                       type="email"
                     />
@@ -96,14 +96,14 @@
 
                 <el-col :lg="8" :md="12" :sm="24">
                   <el-form-item
+                    class="form-item"
                     label="性别"
                     prop="genderCode"
-                    class="form-item"
                   >
                     <el-select
                       v-model="form.genderCode"
-                      placeholder="请选择性别"
                       clearable
+                      placeholder="请选择性别"
                     >
                       <el-option
                         :key="USER_GENDER.MALE.key"
@@ -141,15 +141,15 @@
 
                 <el-col :lg="8" :md="12" :sm="24">
                   <el-form-item
+                    class="form-item"
                     label="所属机构"
                     prop="organizationId"
-                    class="form-item"
                   >
                     <el-select
                       ref="selectTree"
-                      placeholder="请选择所属机构"
                       clearable
                       filterable
+                      placeholder="请选择所属机构"
                       :value="form.organizationId"
                     >
                       <el-option
@@ -167,17 +167,17 @@
 
                 <el-col :lg="8" :md="12" :sm="24">
                   <el-form-item
+                    class="form-item"
                     label="有效期"
                     prop="endUseTime"
-                    class="form-item"
                   >
                     <el-date-picker
                       v-model="form.endUseTime"
+                      clearable
                       placeholder="选择有效期日期"
+                      style="width: 100%"
                       type="date"
                       value-format="yyyy-MM-dd"
-                      clearable
-                      style="width: 100%"
                     />
                   </el-form-item>
                 </el-col>
@@ -187,16 +187,16 @@
               <el-row :gutter="20">
                 <el-col :span="24">
                   <el-form-item
+                    class="form-item"
                     label="备注信息"
                     prop="remark"
-                    class="form-item"
                   >
                     <el-input
                       v-model.trim="form.remark"
-                      placeholder="请输入备注信息（可选）"
-                      type="textarea"
-                      :rows="3"
                       clearable
+                      placeholder="请输入备注信息（可选）"
+                      :rows="3"
+                      type="textarea"
                     />
                   </el-form-item>
                 </el-col>
@@ -223,14 +223,14 @@
 
     <template #footer>
       <div class="dialog-footer">
-        <el-button @click="close" class="cancel-btn">
+        <el-button class="cancel-btn" @click="close">
           <i class="el-icon-close"></i>
           取消
         </el-button>
         <el-button
+          class="confirm-btn"
           :loading="loading"
           type="primary"
-          class="confirm-btn"
           @click="save"
         >
           <i class="el-icon-check"></i>
@@ -242,11 +242,9 @@
 </template>
 
 <script>
-  import { doEdit, roleList } from '@/api/systemManage/userManagement'
-  import { organTree } from '@/api/systemManage/departmentManagement'
+  import { doEdit, roleList } from '@/api/common/userManagement'
   import { USER_STATUS, USER_GENDER } from '@/constant/Enums'
-  import { isNumber } from '@/utils/validate'
-  import { upload_url } from '@/api/project-management/file-list'
+  import { upload_url } from '@/api/common/project-management/file-list'
   import { baseURL } from '@/config'
 
   export default {
@@ -418,16 +416,16 @@
       overflow: hidden;
 
       .el-dialog__header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
+        background: white;
+        color: #333;
         margin: 0;
         padding: 20px 24px;
-        border-bottom: none;
+        border-bottom: 1px solid #e8e8e8;
 
         .el-dialog__title {
           font-size: 18px;
           font-weight: 600;
-          color: white;
+          color: #333;
         }
 
         .el-dialog__headerbtn {
@@ -435,11 +433,11 @@
           right: 20px;
 
           .el-dialog__close {
-            color: white;
+            color: #666;
             font-size: 20px;
 
             &:hover {
-              color: rgba(255, 255, 255, 0.8);
+              color: #1890FF;
             }
           }
         }
@@ -692,16 +690,17 @@
 
     .confirm-btn {
       border-radius: 8px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #1890FF;
       border: none;
       font-weight: 500;
       transition: all 0.3s ease;
       padding: 10px 24px;
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+      box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
 
       &:hover {
+        background: #40a9ff;
         transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 6px 20px rgba(24, 144, 255, 0.4);
       }
 
       &:active {

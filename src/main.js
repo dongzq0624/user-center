@@ -35,9 +35,9 @@ import '@riophae/vue-treeselect/dist/vue-treeselect.css'
 import TreeSelect from '@riophae/vue-treeselect'
 import VueParticles from 'vue-particles'
 
-import XcBaseTable from './components/xc-common/xc-base_table.vue'
-import XcBaseTableSearch from './components/xc-common/xc-base_table_search.vue'
-import XcBaseFormDialog from './components/xc-common/xc-base_form_dialog.vue'
+import AnBaseTable from './components/an-common/an-base_table.vue'
+import AnBaseTableSearch from './components/an-common/an-base_table_search.vue'
+import AnBaseFormDialog from './components/an-common/an-base_form_dialog.vue'
 
 Vue.use(VueParticles)
 Vue.use(Divider)
@@ -47,9 +47,9 @@ Vue.component('NoContent', noContent)
 Vue.component('MemberSelect', MemberSelect)
 Vue.component('DictSelect', dictSelect)
 Vue.component('MemberGroup', MemberGroup)
-Vue.component('XcBaseTable', XcBaseTable)
-Vue.component('XcBaseTableSearch', XcBaseTableSearch)
-Vue.component('XcBaseFormDialog', XcBaseFormDialog)
+Vue.component('AnBaseTable', AnBaseTable)
+Vue.component('AnBaseTableSearch', AnBaseTableSearch)
+Vue.component('AnBaseFormDialog', AnBaseFormDialog)
 if (process.env.NODE_ENV === 'production' && !isExternal(baseURL)) {
   const { mockXHR } = require('@/utils/static')
   mockXHR()

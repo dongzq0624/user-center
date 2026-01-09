@@ -14,8 +14,8 @@ import qs from 'qs'
 import router from '@/router'
 import { isArray } from '@/utils/validate'
 import { addErrorLog, needErrorLog } from '@/vab/plugins/errorLog'
-import { refreshToken } from '@/api/refreshToken'
-import { getClientToken } from '@/api/client'
+import { refreshToken } from '@/api/common/refreshToken'
+import { getClientToken } from '@/api/user/client'
 
 let loadingInstance
 

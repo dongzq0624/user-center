@@ -10,7 +10,7 @@
   />
 </template>
 <script>
-  import { getTree } from '@/api/systemManage/applicationManagement'
+  import { getTree } from '@/api/application/applicationManagement'
   export default {
     props: {},
     data() {

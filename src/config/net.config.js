@@ -6,6 +6,7 @@ module.exports = {
   // 正式项目可以选择自己配置成需要的接口地址，如"https://api.xxx.com"
   // 问号后边代表开发环境，冒号后边代表生产环境
   baseURL: 'http://192.168.77.233/usercenter',
+  // baseURL: 'http://192.168.107.104:8453',
   //测试环境 http://118.31.8.56:8081     http://192.168.0.125:8081
   // 'https://data.xcwlkj.com:8123'
   // 配后端数据的接收方式application/json;charset=UTF-8 或 application/x-www-form-urlencoded;charset=UTF-8

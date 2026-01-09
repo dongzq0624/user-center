@@ -28,7 +28,6 @@
   import img4 from './assets/img4.jpg'
   import img5 from './assets/img5.jpg'
   import closeUrl from '../../assets/img/icon_close.png'
-  import Vue from 'vue'
   import SlideCode from './slideCode'
   export default {
     name: 'PuzzleVerify',

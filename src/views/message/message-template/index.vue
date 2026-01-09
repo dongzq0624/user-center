@@ -19,7 +19,7 @@
         </el-card>
       </el-col>
       <el-col :lg="19" :md="16" :sm="24" :xl="20" :xs="24">
-        <xc-base-table
+        <an-base-table
           ref="basicTable"
           :async-func="fetchListFunc"
           list-name="messageTemplateList"
@@ -33,11 +33,8 @@
             <span>{{ getNoticeTypeEnum(row.noticeType).value }}</span>
           </template>
 
-          <template slot="pushModel" slot-scope="{ row }">
-            <template
-              v-for="(item, index) in row.pushModel.split(',')"
-              v-if="row.pushModel"
-            >
+          <template slot="pushModel" v-if="row.pushModel" slot-scope="{ row }">
+            <template v-for="(item, index) in row.pushModel.split(',')">
               <el-tag :key="index" size="small">
                 {{ getPushModelEnum(item).value }}
               </el-tag>
@@ -66,11 +63,11 @@
               删除
             </el-button>
           </template>
-        </xc-base-table>
+        </an-base-table>
       </el-col>
     </el-row>
 
-    <xc-base-form-dialog
+    <an-base-form-dialog
       ref="editRef"
       :add-func="addFunc"
       :detail-func="detailFunc"
@@ -96,7 +93,7 @@
           "
         />
       </template>
-    </xc-base-form-dialog>
+    </an-base-form-dialog>
   </div>
 </template>
 
@@ -106,7 +103,7 @@
     saveMessageTemplate,
     messageTemplateDetail,
     messageTemplateDelete,
-  } from '@/api/message'
+  } from '@/api/common/message'
   import {
     findByKey,
     toList,

@@ -63,7 +63,7 @@
             label="名称"
             prop="name"
             show-overflow-tooltip
-          ></el-table-column>
+          />
           <el-table-column
             align="center"
             label="组织类型"
@@ -157,8 +157,7 @@
     organLazyTreeList as getList,
     organInfo,
     dragSort,
-    syncZzdOrganToSystem,
-  } from '@/api/systemManage/departmentManagement'
+  } from '@/api/department/departmentManagement'
 
   export default {
     name: 'DepartmentManagement',
@@ -337,7 +336,7 @@
         }
       },
       // 表格行样式
-      rowStyle({ rowIndex }) {
+      rowStyle() {
         return {
           height: '50px',
         }

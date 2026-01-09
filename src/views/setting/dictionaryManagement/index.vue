@@ -94,89 +94,93 @@
               stripe
               @selection-change="setSelectRows"
             >
-          <el-table-column
-            align="center"
-            show-overflow-tooltip
-            type="selection"
-          />
-          <el-table-column align="center" label="序号" width="80">
-            <template #default="{ $index }">
-              <span class="index-number">{{ ($index + 1) + (queryForm.pageNo - 1) * queryForm.pageSize }}</span>
-            </template>
-          </el-table-column>
+              <el-table-column
+                align="center"
+                show-overflow-tooltip
+                type="selection"
+              />
+              <el-table-column align="center" label="序号" width="80">
+                <template #default="{ $index }">
+                  <span class="index-number">
+                    {{
+                      $index + 1 + (queryForm.pageNo - 1) * queryForm.pageSize
+                    }}
+                  </span>
+                </template>
+              </el-table-column>
 
-          <el-table-column
-            align="center"
-            label="名称"
-            prop="name"
-            show-overflow-tooltip
-          />
+              <el-table-column
+                align="center"
+                label="名称"
+                prop="name"
+                show-overflow-tooltip
+              />
 
-          <el-table-column
-            align="center"
-            label="代码"
-            prop="code"
-            show-overflow-tooltip
-          />
+              <el-table-column
+                align="center"
+                label="代码"
+                prop="code"
+                show-overflow-tooltip
+              />
 
-          <el-table-column
-            align="center"
-            label="值"
-            prop="value"
-            show-overflow-tooltip
-          />
-          <el-table-column
-            align="center"
-            class="operation-column"
-            label="操作"
-            show-overflow-tooltip
-            width="150"
-          >
-            <template #default="{ row }">
-              <div class="operation-buttons">
-                <el-button
-                  v-permissions="['system_dictionaryManager_edit']"
-                  class="op-btn edit-btn"
-                  size="small"
-                  type="text"
-                  @click="handleEdit(row)"
-                >
-                  <i class="el-icon-edit"></i>
-                  编辑
-                </el-button>
-                <el-button
-                  v-permissions="['system_dictionaryManager_delete']"
-                  class="op-btn delete-btn"
-                  size="small"
-                  type="text"
-                  @click="handleDelete(row)"
-                >
-                  <i class="el-icon-delete"></i>
-                  删除
-                </el-button>
-              </div>
-            </template>
-          </el-table-column>
-          <template #empty>
-            <!--  <el-image
+              <el-table-column
+                align="center"
+                label="值"
+                prop="value"
+                show-overflow-tooltip
+              />
+              <el-table-column
+                align="center"
+                class="operation-column"
+                label="操作"
+                show-overflow-tooltip
+                width="150"
+              >
+                <template #default="{ row }">
+                  <div class="operation-buttons">
+                    <el-button
+                      v-permissions="['system_dictionaryManager_edit']"
+                      class="op-btn edit-btn"
+                      size="small"
+                      type="text"
+                      @click="handleEdit(row)"
+                    >
+                      <i class="el-icon-edit"></i>
+                      编辑
+                    </el-button>
+                    <el-button
+                      v-permissions="['system_dictionaryManager_delete']"
+                      class="op-btn delete-btn"
+                      size="small"
+                      type="text"
+                      @click="handleDelete(row)"
+                    >
+                      <i class="el-icon-delete"></i>
+                      删除
+                    </el-button>
+                  </div>
+                </template>
+              </el-table-column>
+              <template #empty>
+                <!--  <el-image
               class="vab-data-empty"
               :src="require('@/assets/img/data_empty.png')"
             /> -->
-            <el-empty class="vab-data-empty" description="暂无数据" />
-          </template>
-        </el-table>
-        </el-card>
-        <el-pagination
-          background
-          :current-page="queryForm.pageNo"
-          :layout="layout"
-          :page-size="queryForm.pageSize"
-          :total="total"
-          @current-change="handleCurrentChange"
-          @size-change="handleSizeChange"
-        />
-      </el-col>
-    </el-row>
+                <el-empty class="vab-data-empty" description="暂无数据" />
+              </template>
+            </el-table>
+          </el-card>
+          <el-pagination
+            background
+            :current-page="queryForm.pageNo"
+            :layout="layout"
+            :page-size="queryForm.pageSize"
+            :total="total"
+            @current-change="handleCurrentChange"
+            @size-change="handleSizeChange"
+          />
+        </el-col>
+      </el-row>
     </div>
     <edit ref="editRef" @fetch-data="refreshData" />
   </div>
@@ -188,7 +192,7 @@
     getList,
     dictionaryDetail,
     dictTree,
-  } from '@/api/systemManage/dictionaryManagement'
+  } from '@/api/maintain/dictionaryManagement'
 
   export default {
     name: 'DictionaryManagement',

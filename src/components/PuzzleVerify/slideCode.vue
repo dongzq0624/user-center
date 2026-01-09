@@ -1,6 +1,6 @@
 <template>
   <div v-loading="loading" class="slideCode">
-    <template>
+    <div>
       <div class="slide_pic">
         <img class="slide_bg" :src="slidePic" />
         <div class="slide-verify-refresh-icon" @click="refresh"></div>
@@ -38,11 +38,11 @@
         </div>
         <span class="slide-verify-slider-text">{{ sliderText }}</span>
       </div>
-    </template>
+    </div>
   </div>
 </template>
 <script>
-  import { getSlideInfo, checkSlideCode } from '@/api/httpRequestAPI'
+  import { getSlideInfo, checkSlideCode } from '@/api/common/httpRequestAPI'
 
   function sum(x, y) {
     return x + y
@@ -224,8 +224,6 @@
           deviations.map(square).reduce(sum) / arr.length
         ) // standard deviation
         const left = parseInt(this.positionX)
-        const accuracy =
-          this.accuracy <= 1 ? 1 : this.accuracy > 10 ? 10 : this.accuracy
         const params = {
           imageToken: this.imageToken,
           x: left,
@@ -278,7 +276,7 @@
       left: 0;
     }
     .slide_pic {
-      width: 100%;
+      width: 360px;
       height: 168px;
     }
     .block {
@@ -300,7 +298,7 @@
     .slide-verify-slider {
       position: relative;
       text-align: center;
-      width: 100%;
+      width: 360px;
       height: 48px;
       line-height: 46px;
       margin-top: 10px;

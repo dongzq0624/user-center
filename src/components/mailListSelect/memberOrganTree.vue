@@ -28,7 +28,7 @@
   </div>
 </template>
 <script>
-  import { organSummaryList, organUserSummaryList } from '@/api/components'
+  import { organSummaryList, organUserSummaryList } from '@/api/common/components'
   import MemberSelect from './memberSelect'
   export default {
     name: 'MemberOrganTree',

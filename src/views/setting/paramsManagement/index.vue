@@ -70,7 +70,7 @@
             </div>
           </div>
         </template>
-            <el-table
+        <el-table
           v-loading="listLoading"
           border
           class="params-table"
@@ -78,39 +78,45 @@
           stripe
           @selection-change="setSelectRows"
         >
-          <el-table-column align="center" show-overflow-tooltip type="selection" />
+          <el-table-column
+            align="center"
+            show-overflow-tooltip
+            type="selection"
+          />
           <el-table-column align="center" label="序号" width="80">
             <template #default="{ $index }">
-              <span class="index-number">{{ ($index + 1) + (queryForm.pageNo - 1) * queryForm.pageSize }}</span>
+              <span class="index-number">
+                {{ $index + 1 + (queryForm.pageNo - 1) * queryForm.pageSize }}
+              </span>
             </template>
           </el-table-column>
-      <el-table-column
-        align="center"
-        label="名称"
-        prop="name"
-        show-overflow-tooltip
-      />
+          <el-table-column
+            align="center"
+            label="名称"
+            prop="name"
+            show-overflow-tooltip
+          />
 
-      <el-table-column
-        align="center"
-        label="代码"
-        prop="code"
-        show-overflow-tooltip
-      />
+          <el-table-column
+            align="center"
+            label="代码"
+            prop="code"
+            show-overflow-tooltip
+          />
 
-      <el-table-column
-        align="center"
-        label="值"
-        prop="value"
-        show-overflow-tooltip
-      />
+          <el-table-column
+            align="center"
+            label="值"
+            prop="value"
+            show-overflow-tooltip
+          />
 
-      <el-table-column
-        align="center"
-        label="备注"
-        prop="remark"
-        show-overflow-tooltip
-      />
+          <el-table-column
+            align="center"
+            label="备注"
+            prop="remark"
+            show-overflow-tooltip
+          />
 
           <el-table-column
             align="center"
@@ -144,31 +150,31 @@
               </div>
             </template>
           </el-table-column>
-      <template #empty>
-        <!--  <el-image
+          <template #empty>
+            <!--  <el-image
           class="vab-data-empty"
           :src="require('@/assets/img/data_empty.png')"
         /> -->
-        <el-empty class="vab-data-empty" description="暂无数据" />
-      </template>
+            <el-empty class="vab-data-empty" description="暂无数据" />
+          </template>
         </el-table>
-        </el-card>
-        <el-pagination
-          background
-          :current-page="queryForm.pageNo"
-          :layout="layout"
-          :page-size="queryForm.pageSize"
-          :total="total"
-          @current-change="handleCurrentChange"
-          @size-change="handleSizeChange"
-        />
-      </div>
+      </el-card>
+      <el-pagination
+        background
+        :current-page="queryForm.pageNo"
+        :layout="layout"
+        :page-size="queryForm.pageSize"
+        :total="total"
+        @current-change="handleCurrentChange"
+        @size-change="handleSizeChange"
+      />
+    </div>
     <edit ref="editRef" @fetch-data="fetchData" />
   </div>
 </template>
 
 <script>
-  import { doDelete, getList } from '@/api/systemManage/paramsManagement.js'
+  import { doDelete, getList } from '@/api/maintain/paramsManagement.js'
 
   export default {
     name: 'DictionaryManagement',

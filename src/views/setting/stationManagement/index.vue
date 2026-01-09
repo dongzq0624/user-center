@@ -147,7 +147,7 @@
 </template>
 
 <script>
-  import { doDelete, getPostList } from '@/api/systemManage/stationManagement'
+  import { doDelete, getPostList } from '@/api/common/stationManagement'
   import { USER_STATUS } from '@/constant/Enums.js'
 
   export default {

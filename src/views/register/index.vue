@@ -96,7 +96,7 @@
 <script>
   import { translateTitle } from '@/utils/i18n'
   import { isPassword, isPhone } from '@/utils/validate'
-  import { register } from '@/api/user'
+  import { register } from '@/api/user/user'
   import { mapActions } from 'vuex'
 
   export default {

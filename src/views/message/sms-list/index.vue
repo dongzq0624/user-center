@@ -1,12 +1,12 @@
 <template>
   <div class="dictionary-management-container">
-    <xc-base-table-search
+    <an-base-table-search
       ref="searchForm"
       :options="searchOptions"
       @onSearch="onSearch"
     />
     <vab-query-form>
-      <xc-base-table
+      <an-base-table
         ref="basicTable"
         :async-func="fetchListFunc"
         list-name="sendMessageReceiveList"
@@ -16,13 +16,13 @@
         <template slot="busiType" slot-scope="{ row }">
           <span>{{ getBusiTypeEnum(row.busiType).value }}</span>
         </template>
-      </xc-base-table>
+      </an-base-table>
     </vab-query-form>
   </div>
 </template>
 
 <script>
-  import { sendMessageReceiveList } from '@/api/message'
+  import { sendMessageReceiveList } from '@/api/common/message'
   import { findByKey, toList, SMS_BUSI_TYPE } from '@/constant/Enums'
 
   export default {

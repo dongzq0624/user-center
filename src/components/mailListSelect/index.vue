@@ -172,14 +172,12 @@
 <script>
   import { mapGetters } from 'vuex'
   import MemberGroupTree from './memberGroupTree'
-  import MemberOrganTree from './memberOrganTree'
   import MemberPageList from './memberPageList'
   import MemberGroup from '../memberGroup'
   export default {
     name: 'MailSelect',
     components: {
       MemberGroupTree,
-      MemberOrganTree,
       MemberGroup,
       MemberPageList,
     },

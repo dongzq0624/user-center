@@ -128,7 +128,7 @@
     unbindUser,
     syncZzdOrgan,
     syncZzdUser,
-  } from '@/api/applications/dingding'
+  } from '@/api/application/dingding'
   import { DING_USER_STATUS } from '@/constant/Enums.js'
   export default {
     name: 'UserManagement',

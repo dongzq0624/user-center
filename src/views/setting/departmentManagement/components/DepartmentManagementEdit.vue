@@ -1,30 +1,30 @@
 <template>
   <el-dialog
+    class="department-edit-dialog"
     :close-on-click-modal="false"
     :title="title"
     :visible="dialogFormVisible"
     width="600px"
-    class="department-edit-dialog"
     @close="close"
   >
     <div class="dialog-content">
       <el-form
         ref="formRef"
+        class="edit-form"
         label-width="100px"
         :model="form"
         :rules="rules"
-        class="edit-form"
       >
         <el-row :gutter="20">
           <el-col :span="24">
-            <el-form-item label="组织父节点" prop="parentId" class="form-item">
+            <el-form-item class="form-item" label="组织父节点" prop="parentId">
               <el-select
                 ref="treeSelect"
                 v-model="form.parentId"
-                placeholder="请选择父节点"
                 class="tree-select"
-                filterable
                 clearable
+                filterable
+                placeholder="请选择父节点"
               >
                 <el-option
                   :label="form.parentName"
@@ -32,10 +32,10 @@
                   :value="form.parentId"
                 >
                   <el-tree
-                    :data="treeData"
-                    :props="defaultProps"
-                    :expand-on-click-node="false"
                     class="department-tree"
+                    :data="treeData"
+                    :expand-on-click-node="false"
+                    :props="defaultProps"
                     @node-click="handleNodeClick"
                   />
                 </el-option>
@@ -44,22 +44,22 @@
           </el-col>
 
           <el-col :span="12">
-            <el-form-item label="组织类型" prop="type" class="form-item">
+            <el-form-item class="form-item" label="组织类型" prop="type">
               <dictionary-select
                 v-model="form.type"
-                code="organization_type"
                 class="type-select"
+                code="organization_type"
               />
             </el-form-item>
           </el-col>
 
           <el-col :span="12">
-            <el-form-item label="组织名称" prop="name" class="form-item">
+            <el-form-item class="form-item" label="组织名称" prop="name">
               <el-input
                 v-model="form.name"
-                placeholder="请输入组织名称"
                 class="name-input"
                 clearable
+                placeholder="请输入组织名称"
               >
                 <template #prefix>
                   <i class="el-input__icon el-icon-office-building"></i>
@@ -69,28 +69,32 @@
           </el-col>
 
           <el-col :span="24">
-            <el-form-item label="组织负责人" prop="directorIds" class="form-item">
+            <el-form-item
+              class="form-item"
+              label="组织负责人"
+              prop="directorIds"
+            >
               <member-select
+                class="member-select"
                 multiple
                 type="list"
                 :value="form.directors"
-                class="member-select"
                 @onChange="directorOnChange"
               />
             </el-form-item>
           </el-col>
 
           <el-col :span="24">
-            <el-form-item label="备注" prop="remark" class="form-item">
+            <el-form-item class="form-item" label="备注" prop="remark">
               <el-input
                 v-model="form.remark"
-                :rows="4"
-                type="textarea"
-                placeholder="请输入备注信息（可选）"
                 class="remark-textarea"
                 maxlength="500"
-                show-word-limit
+                placeholder="请输入备注信息（可选）"
                 resize="vertical"
+                :rows="4"
+                show-word-limit
+                type="textarea"
               />
             </el-form-item>
           </el-col>
@@ -100,18 +104,11 @@
 
     <template #footer>
       <div class="dialog-footer">
-        <el-button
-          class="cancel-btn"
-          @click="close"
-        >
+        <el-button class="cancel-btn" @click="close">
           <i class="el-icon-close"></i>
           取消
         </el-button>
-        <el-button
-          type="primary"
-          class="confirm-btn"
-          @click="save"
-        >
+        <el-button class="confirm-btn" type="primary" @click="save">
           <i class="el-icon-check"></i>
           确定
         </el-button>
@@ -121,8 +118,8 @@
 </template>
 
 <script>
-  import { doEdit, getList } from '@/api/systemManage/departmentManagement'
-  import { getOrganTree } from '@/api/applications/dingding'
+  import { doEdit, getList } from '@/api/department/departmentManagement'
+  import { getOrganTree } from '@/api/application/dingding'
   export default {
     components: {
       DictionarySelect: () => import('@/components/dictionarySelect'),
@@ -249,15 +246,16 @@
       overflow: hidden;
 
       .el-dialog__header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
+        background: white;
+        color: #333;
         margin: 0;
         padding: 20px 24px;
-        border-bottom: none;
+        border-bottom: 1px solid #e8e8e8;
 
         .el-dialog__title {
           font-weight: 600;
           font-size: 18px;
+          color: #333;
         }
 
         .el-dialog__headerbtn {
@@ -265,11 +263,11 @@
           right: 20px;
 
           .el-dialog__close {
-            color: white;
+            color: #666;
             font-size: 20px;
 
             &:hover {
-              color: rgba(255, 255, 255, 0.8);
+              color: #1890FF;
             }
           }
         }
@@ -474,16 +472,17 @@
 
     .confirm-btn {
       border-radius: 8px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #1890FF;
       border: none;
       font-weight: 500;
       transition: all 0.3s ease;
       padding: 10px 24px;
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+      box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
 
       &:hover {
+        background: #40a9ff;
         transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 6px 20px rgba(24, 144, 255, 0.4);
       }
 
       &:active {

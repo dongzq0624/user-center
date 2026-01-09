@@ -92,7 +92,11 @@
               />
               <el-table-column align="center" label="序号" width="80">
                 <template #default="{ $index }">
-                  <span class="index-number">{{ ($index + 1) + (queryForm.pageNo - 1) * queryForm.pageSize }}</span>
+                  <span class="index-number">
+                    {{
+                      $index + 1 + (queryForm.pageNo - 1) * queryForm.pageSize
+                    }}
+                  </span>
                 </template>
               </el-table-column>
               <el-table-column
@@ -201,7 +205,7 @@
     roleDetail,
     userRoleInit,
     userRoleSave,
-  } from '@/api/systemManage/roleManagement'
+  } from '@/api/application/roleManagement'
 
   export default {
     name: 'RoleManagement',

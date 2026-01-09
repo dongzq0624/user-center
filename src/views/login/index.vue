@@ -128,7 +128,7 @@
   import { mapGetters, mapActions } from 'vuex'
   import { translateTitle } from '@/utils/i18n'
   import { isPassword } from '@/utils/validate'
-  import { changePassword } from '@/api/user'
+  import { changePassword } from '@/api/user/user'
   import store from '@/store'
   export default {
     name: 'Login',

@@ -20,7 +20,7 @@
             <div class="bullshit-oops">{{ oops }}</div>
             <div class="bullshit-headline">{{ headline }}</div>
             <div class="bullshit-info">{{ info }}</div>
-            <router-link class="bullshit-return-home" to="/userManagement">
+            <router-link class="bullshit-return-home" to="/user-management">
               {{ jumpTime }}s&nbsp;{{ btn }}
             </router-link>
           </div>
@@ -68,7 +68,7 @@
             this.jumpTime--
           } else {
             this.delVisitedRoute(this.$route.path)
-            this.$router.push('/userManagement')
+            this.$router.push('/user-management')
             clearInterval(this.timer)
           }
         }, 1000)

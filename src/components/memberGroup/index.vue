@@ -136,7 +136,7 @@
     joinMember,
     eliminateMember,
     groupMemberList,
-  } from '@/api/components'
+  } from '@/api/common/components'
   export default {
     name: 'MemberGroup',
     props: ['applicationId'],

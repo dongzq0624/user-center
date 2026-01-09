@@ -205,8 +205,8 @@
             <el-table-column
               align="center"
               label="状态"
-              width="100"
               show-overflow-tooltip
+              width="100"
             >
               <template #default="{ row }">
                 <el-tag
@@ -358,8 +358,7 @@
     activationUser,
     freezeUser,
     dragSort,
-  } from '@/api/systemManage/userManagement'
-  import { synchUser } from '@/api/applications/dingding'
+  } from '@/api/common/userManagement'
   import {
     USER_STATUS,
     USER_GENDER,
@@ -574,7 +573,7 @@
         }
       },
       // 表格行样式
-      rowStyle({ rowIndex }) {
+      rowStyle() {
         return {
           height: '50px',
         }

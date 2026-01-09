@@ -137,9 +137,9 @@
 </template>
 
 <script>
-  import { dictListByCode } from '@/api/components'
+  import { dictListByCode } from '@/api/common/components'
   import { USER_GENDER, findByKey } from '@/constant/Enums'
-  import { mergeUser } from '@/api/systemManage/userManagement'
+  import { mergeUser } from '@/api/common/userManagement'
   export default {
     components: {},
     props: {
@@ -321,7 +321,7 @@
 
         this.loading = true
         mergeUser(params)
-          .then((resp) => {
+          .then(() => {
             this.loading = false
             this.$message.success('合并成功')
             this.$emit('ok')

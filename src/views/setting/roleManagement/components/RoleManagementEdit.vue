@@ -54,7 +54,7 @@
 </template>
 
 <script>
-  import { PowerList, doEdit } from '@/api/systemManage/roleManagement'
+  import { PowerList, doEdit } from '@/api/application/roleManagement'
   const validateMenu = (rule, value, callback) => {
     if (value.length == 0) {
       return callback(new Error('菜单选择不能为空'))

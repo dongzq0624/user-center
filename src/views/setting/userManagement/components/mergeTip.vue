@@ -42,7 +42,7 @@
     ensurePhoneNoExist,
     deputyDetail, //代表详情
     userDetail, //机关用户详情
-  } from '@/api/systemManage/userManagement'
+  } from '@/api/common/userManagement'
   export default {
     components: {
       MergeDetail: () => import('./mergeDetail'),

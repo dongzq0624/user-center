@@ -13,8 +13,8 @@
             <div class="personal-center-user-info">
               <div class="avatar-section">
                 <el-avatar
-                  :size="120"
                   class="user-avatar"
+                  :size="120"
                   :src="avatar"
                   @click="openDialog"
                 />
@@ -26,7 +26,7 @@
               <div class="personal-center-user-info-full-name">
                 {{ username }}
               </div>
-            <!-- <div class="personal-center-user-info-description">
+              <!-- <div class="personal-center-user-info-description">
               {{ form.description }}
             </div> -->
 
@@ -67,7 +67,9 @@
                   </div>
                   <div class="info-content">
                     <div class="info-label">所属部门</div>
-                    <div class="info-value">{{ userInfo.organizationName }}</div>
+                    <div class="info-value">
+                      {{ userInfo.organizationName }}
+                    </div>
                   </div>
                 </div>
 
@@ -81,9 +83,9 @@
                   </div>
                 </div>
               </div>
-          </div>
-        </el-card>
-      </el-col>
+            </div>
+          </el-card>
+        </el-col>
         <el-col :lg="16" :md="12" :sm="24" :xl="16" :xs="24">
           <el-card class="settings-card" shadow="never">
             <template #header>
@@ -103,68 +105,87 @@
                       :model="form"
                       :rules="rules"
                     >
-                    <div class="form-section">
-                      <div class="section-header">
-                        <i class="el-icon-edit"></i>
-                        <span>基本信息设置</span>
-                      </div>
-                      <div class="form-content">
-                        <el-row :gutter="20">
-                          <el-col :span="24">
-                            <el-form-item class="form-item" label="姓名" prop="username">
-                              <el-input
-                                v-model="form.username"
-                                clearable
-                                placeholder="请输入您的姓名"
-                                prefix-icon="el-icon-user"
-                              />
-                            </el-form-item>
-                          </el-col>
-                          <el-col :span="24">
-                            <el-form-item class="form-item" label="性别" prop="gender">
-                              <el-radio-group v-model="form.gender" class="gender-radio">
-                                <el-radio
-                                  class="radio-option"
-                                  :label="USER_GENDER.MALE.key"
+                      <div class="form-section">
+                        <div class="section-header">
+                          <i class="el-icon-edit"></i>
+                          <span>基本信息设置</span>
+                        </div>
+                        <div class="form-content">
+                          <el-row :gutter="20">
+                            <el-col :span="24">
+                              <el-form-item
+                                class="form-item"
+                                label="姓名"
+                                prop="username"
+                              >
+                                <el-input
+                                  v-model="form.username"
+                                  clearable
+                                  placeholder="请输入您的姓名"
+                                  prefix-icon="el-icon-user"
+                                />
+                              </el-form-item>
+                            </el-col>
+                            <el-col :span="24">
+                              <el-form-item
+                                class="form-item"
+                                label="性别"
+                                prop="gender"
+                              >
+                                <el-radio-group
+                                  v-model="form.gender"
+                                  class="gender-radio"
                                 >
-                                  <i class="el-icon-male"></i>
-                                  {{ USER_GENDER.MALE.value }}
-                                </el-radio>
-                                <el-radio
-                                  class="radio-option"
-                                  :label="USER_GENDER.FEMALE.key"
-                                >
-                                  <i class="el-icon-female"></i>
-                                  {{ USER_GENDER.FEMALE.value }}
-                                </el-radio>
-                              </el-radio-group>
-                            </el-form-item>
-                          </el-col>
-                          <el-col :span="24">
-                            <el-form-item class="form-item" label="手机号码" prop="phoneNo">
-                              <el-input
-                                v-model="form.phoneNo"
-                                clearable
-                                :maxlength="11"
-                                placeholder="请输入手机号码"
-                                prefix-icon="el-icon-phone"
-                              />
-                            </el-form-item>
-                          </el-col>
-                        </el-row>
+                                  <el-radio
+                                    class="radio-option"
+                                    :label="USER_GENDER.MALE.key"
+                                  >
+                                    <i class="el-icon-male"></i>
+                                    {{ USER_GENDER.MALE.value }}
+                                  </el-radio>
+                                  <el-radio
+                                    class="radio-option"
+                                    :label="USER_GENDER.FEMALE.key"
+                                  >
+                                    <i class="el-icon-female"></i>
+                                    {{ USER_GENDER.FEMALE.value }}
+                                  </el-radio>
+                                </el-radio-group>
+                              </el-form-item>
+                            </el-col>
+                            <el-col :span="24">
+                              <el-form-item
+                                class="form-item"
+                                label="手机号码"
+                                prop="phoneNo"
+                              >
+                                <el-input
+                                  v-model="form.phoneNo"
+                                  clearable
+                                  :maxlength="11"
+                                  placeholder="请输入手机号码"
+                                  prefix-icon="el-icon-phone"
+                                />
+                              </el-form-item>
+                            </el-col>
+                          </el-row>
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="form-actions">
-                      <el-button class="save-btn" type="primary" @click="onSubmit">
-                        <i class="el-icon-check"></i>
-                        保存修改
-                      </el-button>
-                    </div>
-                  </el-form>
+                      <div class="form-actions">
+                        <el-button
+                          class="save-btn"
+                          type="primary"
+                          @click="onSubmit"
+                        >
+                          <i class="el-icon-check"></i>
+                          保存修改
+                        </el-button>
+                      </div>
+                    </el-form>
+                  </div>
                 </div>
-              </div>
-            </el-tab-pane>
+              </el-tab-pane>
               <el-tab-pane label="修改密码" name="second">
                 <div class="tab-content">
                   <div class="form-container">
@@ -183,7 +204,11 @@
                         <div class="form-content">
                           <el-row :gutter="20">
                             <el-col :span="24">
-                              <el-form-item class="form-item" label="旧密码" prop="oldPassword">
+                              <el-form-item
+                                class="form-item"
+                                label="旧密码"
+                                prop="oldPassword"
+                              >
                                 <el-input
                                   v-model="passform.oldPassword"
                                   clearable
@@ -195,7 +220,11 @@
                               </el-form-item>
                             </el-col>
                             <el-col :span="24">
-                              <el-form-item class="form-item" label="新密码" prop="newPassword">
+                              <el-form-item
+                                class="form-item"
+                                label="新密码"
+                                prop="newPassword"
+                              >
                                 <el-input
                                   v-model="passform.newPassword"
                                   clearable
@@ -207,7 +236,11 @@
                               </el-form-item>
                             </el-col>
                             <el-col :span="24">
-                              <el-form-item class="form-item" label="确认密码" prop="confirmPassword">
+                              <el-form-item
+                                class="form-item"
+                                label="确认密码"
+                                prop="confirmPassword"
+                              >
                                 <el-input
                                   v-model="passform.confirmPassword"
                                   clearable
@@ -223,7 +256,11 @@
                       </div>
 
                       <div class="form-actions">
-                        <el-button class="save-btn" type="primary" @click="onSave">
+                        <el-button
+                          class="save-btn"
+                          type="primary"
+                          @click="onSave"
+                        >
                           <i class="el-icon-check"></i>
                           修改密码
                         </el-button>
@@ -232,10 +269,10 @@
                   </div>
                 </div>
               </el-tab-pane>
-          </el-tabs>
-        </el-card>
-      </el-col>
-    </el-row>
+            </el-tabs>
+          </el-card>
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
@@ -248,7 +285,7 @@
     changePassword,
     getCliendIdAndRedirectUri,
     scanCodeBind,
-  } from '@/api/user'
+  } from '@/api/user/user'
 
   export default {
     name: 'PersonalCenter',
@@ -406,7 +443,6 @@
     padding: 20px;
     background-color: #f5f7fa;
     min-height: calc(100vh - 84px);
-
 
     // 主内容区域
     .personal-center-content {
@@ -708,7 +744,11 @@
 
                   .save-btn {
                     border-radius: 8px;
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    background: linear-gradient(
+                      135deg,
+                      #667eea 0%,
+                      #764ba2 100%
+                    );
                     border: none;
                     font-weight: 500;
                     padding: 12px 32px;

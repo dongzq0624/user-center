@@ -47,7 +47,7 @@
 </template>
 
 <script>
-  import { doEdit } from '@/api/systemManage/stationManagement'
+  import { doEdit } from '@/api/common/stationManagement'
   import { USER_STATUS } from '@/constant/Enums.js'
   export default {
     name: 'RoleManagementEdit',

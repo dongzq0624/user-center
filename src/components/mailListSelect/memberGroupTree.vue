@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-  import { userGroupList, groupMemberList } from '@/api/components'
+  import { userGroupList, groupMemberList } from '@/api/common/components'
   import MemberSelect from './memberSelect'
   export default {
     name: 'MemberGroupTree',

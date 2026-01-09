@@ -8,7 +8,7 @@
   />
 </template>
 <script>
-  import { organTree } from '@/api/systemManage/departmentManagement'
+  import { organTree } from '@/api/department/departmentManagement'
   export default {
     name: 'DepartmentSelect',
     props: {

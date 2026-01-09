@@ -145,9 +145,9 @@
 
 <script>
   //import VabIconSelector from '@/extra/VabIconSelector'
-  import { doEdit, getList } from '@/api/systemManage/menuManagement'
+  import { doEdit, getList } from '@/api/application/menuManagement'
   import { MENU_TYPE, toList } from '@/constant/Enums'
-  import { upload_url } from '@/api/project-management/file-list'
+  import { upload_url } from '@/api/common/project-management/file-list'
   import { baseURL } from '@/config'
 
   export default {
@@ -305,16 +305,16 @@
       overflow: hidden;
 
       .el-dialog__header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
+        background: white;
+        color: #333;
         margin: 0;
         padding: 20px 24px;
-        border-bottom: none;
+        border-bottom: 1px solid #e8e8e8;
 
         .el-dialog__title {
           font-size: 18px;
           font-weight: 600;
-          color: white;
+          color: #333;
         }
 
         .el-dialog__headerbtn {
@@ -322,11 +322,11 @@
           right: 20px;
 
           .el-dialog__close {
-            color: white;
+            color: #666;
             font-size: 20px;
 
             &:hover {
-              color: rgba(255, 255, 255, 0.8);
+              color: #1890FF;
             }
           }
         }
@@ -459,16 +459,17 @@
 
     .confirm-btn {
       border-radius: 8px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #1890FF;
       border: none;
       font-weight: 500;
       transition: all 0.3s ease;
       padding: 10px 24px;
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+      box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
 
       &:hover {
+        background: #40a9ff;
         transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 6px 20px rgba(24, 144, 255, 0.4);
       }
 
       &:active {

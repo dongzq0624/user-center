@@ -2,8 +2,8 @@
  * @description 登录、获取用户信息、退出登录、清除token逻辑，不建议修改
  */
 import Vue from 'vue'
-import { getUserInfo, login, logout, socialLogin } from '@/api/user'
-import { roleDetail } from '@/api/systemManage/roleManagement'
+import { getUserInfo, login, logout, socialLogin } from '@/api/user/user'
+import { roleDetail } from '@/api/application/roleManagement'
 import {
   getToken,
   removeToken,
@@ -124,7 +124,7 @@ const actions = {
           : '晚上好'
       Vue.prototype.$baseNotify(`欢迎登录${title}`, `${thisTime}！`)
 
-      router.push('/userManagement')
+      router.push('/user-management')
     } else {
       commit('setIsExpiration', isExpiration)
       commit('setLoginUserId', userId)

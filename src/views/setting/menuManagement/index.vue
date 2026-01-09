@@ -156,7 +156,7 @@
     doDelete,
     getList,
     menuEdit,
-  } from '@/api/systemManage/menuManagement.js'
+  } from '@/api/application/menuManagement.js'
   import { MENU_TYPE } from '@/constant/Enums'
 
   export default {
