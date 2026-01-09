@@ -133,7 +133,7 @@
                 <div class="empty-state">
                   <!-- <el-image
                 class="vab-data-empty"
-                :src="require('@/assets/empty_images/data_empty.png')"
+                :src="require('@/assets/img/data_empty.png')"
               /> -->
                   <el-empty class="vab-data-empty" description="暂无数据" />
                 </div>

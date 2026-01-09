@@ -250,9 +250,9 @@
         this.propList.forEach((data) => {
           if (propName == data.propName) {
             if (type == data.type) {
-              icon = require('../../../../assets/icon_checked.png')
+              icon = require('../../../../assets/img/icon_checked.png')
             } else {
-              icon = require('../../../../assets/icon_uncheck.png')
+              icon = require('../../../../assets/img/icon_uncheck.png')
             }
           }
         })

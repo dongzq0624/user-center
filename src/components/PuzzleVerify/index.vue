@@ -27,7 +27,7 @@
   import img3 from './assets/img3.jpg'
   import img4 from './assets/img4.jpg'
   import img5 from './assets/img5.jpg'
-  import closeUrl from '../../assets/icon_close.png'
+  import closeUrl from '../../assets/img/icon_close.png'
   import Vue from 'vue'
   import SlideCode from './slideCode'
   export default {

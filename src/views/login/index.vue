@@ -1,6 +1,6 @@
 <template>
   <div class="login-container">
-    <el-image class="image" :src="require('@/assets/logo.png')" />
+    <el-image class="image" :src="require('@/assets/img/logo.png')" />
 
     <div class="login_box">
       <el-form
@@ -342,7 +342,7 @@
   .login-container {
     width: 100%;
     height: 100%;
-    background: url('~@/assets/login_images/background.jpg') center center fixed
+    background: url('~@/assets/img/background.jpg') center center fixed
       no-repeat;
     background-size: cover;
     display: flex;

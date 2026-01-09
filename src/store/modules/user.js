@@ -19,7 +19,7 @@ const state = () => ({
   token: getToken(),
   clientToken: getClientToken(),
   username: '游客',
-  avatar: require('@/assets/cropper_images/user.gif'),
+  avatar: require('@/assets/img/user.gif'),
   userInfo: {},
   isStaff: false,
   fileSortType: 'thumbnail',

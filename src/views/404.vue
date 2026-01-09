@@ -6,11 +6,11 @@
           <div class="pic-error">
             <el-image
               class="pic-error-parent"
-              :src="require('@/assets/error_images/404.png')"
+              :src="require('@/assets/img/404.png')"
             />
             <el-image
               class="pic-error-child left"
-              :src="require('@/assets/error_images/cloud.png')"
+              :src="require('@/assets/img/cloud.png')"
             />
           </div>
         </el-col>

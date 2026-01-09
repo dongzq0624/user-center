@@ -228,7 +228,7 @@
   .register-container {
     height: 100vh;
     min-height: 700px;
-    background: url('~@/assets/login_images/background.jpg') center center fixed
+    background: url('~@/assets/img/background.jpg') center center fixed
       no-repeat;
     background-size: cover;
 
@@ -238,7 +238,7 @@
       padding: 4.5vh;
       margin: calc((100vh - 590px) / 2) 5vw 5vw;
       overflow: hidden;
-      background: url('~@/assets/login_images/login_form.png');
+      background: url('~@/assets/img/login_form.png');
       background-size: 100% 100%;
 
       .title-tips {

@@ -8,7 +8,7 @@
       @close="close"
     >
       <div class="tip-modal-container">
-        <img src="../../../../assets/icon_modal_tip.png" />
+        <img src="../../../../assets/img/icon_modal_tip.png" />
         <span>
           {{
             type == 'department'

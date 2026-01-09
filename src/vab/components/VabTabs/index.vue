@@ -460,14 +460,14 @@
                 color: $base-color-blue;
                 background: mix($base-color-white, $base-color-blue, 90%);
                 outline: none;
-                mask: url('~@/assets/tabs_images/vab-tab.png');
+                mask: url('~@/assets/img/vab-tab.png');
                 mask-size: 100% 100%;
 
                 &:hover {
                   padding: 0 30px 0 30px;
                   color: $base-color-blue;
                   background: mix($base-color-white, $base-color-blue, 90%);
-                  mask: url('~@/assets/tabs_images/vab-tab.png');
+                  mask: url('~@/assets/img/vab-tab.png');
                   mask-size: 100% 100%;
                 }
               }
@@ -476,7 +476,7 @@
                 padding: 0 30px 0 30px;
                 color: $base-color-black;
                 background: #dee1e6;
-                mask: url('~@/assets/tabs_images/vab-tab.png');
+                mask: url('~@/assets/img/vab-tab.png');
                 mask-size: 100% 100%;
               }
             }

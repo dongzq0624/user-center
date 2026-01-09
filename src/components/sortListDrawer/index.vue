@@ -25,7 +25,7 @@
             :width="item.width"
           >
             <template slot-scope="scope">
-              <img class="sort_icon" src="../../assets/icon_sort.png" />
+              <img class="sort_icon" src="../../assets/img/icon_sort.png" />
               <span style="margin-left: 15px">{{ scope.row[item.prop] }}</span>
             </template>
           </el-table-column>

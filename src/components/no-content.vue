@@ -1,6 +1,6 @@
 <template>
   <div class="no_content" :style="{ height: height + 'px' }">
-    <img alt="" src="../assets/public/none.png" />
+    <img alt="" src="../assets/img/none.png" />
   </div>
 </template>
 
