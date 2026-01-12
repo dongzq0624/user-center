@@ -1,15 +1,11 @@
 import Vue from 'vue'
 
-// 加载雪碧图
-import '@/icon'
 // 加载全局样式样式
 import './styles/vab.scss'
 
-// 加载VabIcon
-import VabIcon from 'vab-icons'
-import 'vab-icons/lib/vab-icons.css'
-
-Vue.component('VabIcon', VabIcon)
+// 注册新的SvgIcon组件
+import SvgIcon from '@/components/SvgIcon.vue'
+Vue.component('SvgIcon', SvgIcon)
 
 // 加载主题
 const Themes = require.context('./styles/themes', false, /\.scss$/)

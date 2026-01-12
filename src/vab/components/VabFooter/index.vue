@@ -1,7 +1,7 @@
 <template>
   <footer class="vab-footer">
     Copyright
-    <vab-icon icon="copyright-line" />
+    <svg-icon icon="copyright-line" />
     {{ fullYear }} {{ title }}
   </footer>
 </template>

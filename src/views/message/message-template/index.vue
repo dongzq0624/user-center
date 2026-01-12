@@ -43,7 +43,7 @@
 
           <template slot="templateContent" slot-scope="{ row }">
             <a href="javascript:void(0)" @click="showContent(row)">
-              <vab-icon icon="eye-fill" />
+              <svg-icon icon="eye-fill" />
             </a>
           </template>
 

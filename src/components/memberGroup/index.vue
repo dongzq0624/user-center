@@ -52,11 +52,11 @@
                 </template>
                 <template v-else>
                   <div class="text" @click="groupOnClick(index)">
-                    <vab-icon icon="group-line" />
+                    <svg-icon icon="group-line" />
                     {{ group.name }} （{{ group.membersNum || '0' }}人）
                   </div>
                   <div class="control_box">
-                    <vab-icon
+                    <svg-icon
                       icon="edit-line"
                       style="margin: 0 10px"
                       @click.stop="editGroupOnClick(index)"
@@ -65,7 +65,7 @@
                       title="是否确定删除分组？"
                       @confirm="groupOnDelete(group.id)"
                     >
-                      <vab-icon
+                      <svg-icon
                         icon="delete-bin-line"
                         slot="reference"
                         style="margin: 0 10px"
@@ -90,7 +90,7 @@
                   @onChange="changeMemberList"
                 >
                   <div slot="result">
-                    <vab-icon icon="add-line" />
+                    <svg-icon icon="add-line" />
                     新增成员
                   </div>
                 </member-select>
@@ -113,7 +113,7 @@
                     {{ member.userName }}
                   </div>
                   <div class="control_box">
-                    <vab-icon
+                    <svg-icon
                       icon="close-line"
                       @click="memberOnDelete(member.userId)"
                     />

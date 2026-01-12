@@ -2,7 +2,12 @@
   <el-breadcrumb class="vab-breadcrumb" separator=">">
     <template v-for="(item, index) in breadcrumbList">
       <el-breadcrumb-item :key="index" :to="{ path: item.redirect }">
-        <vab-icon v-if="item.meta && item.meta.icon" :icon="item.meta.icon" />
+        <!-- <svg-icon
+          v-if="item.meta && item.meta.icon"
+          color="#000000"
+          :icon="item.meta.icon"
+          size="16"
+        /> -->
         {{ translateTitle(item.meta.title) }}
       </el-breadcrumb-item>
     </template>
@@ -38,7 +43,7 @@
     font-size: $base-font-size-default;
     line-height: $base-nav-height;
 
-    :deep() {
+    ::v-deep {
       .el-breadcrumb__item {
         .el-breadcrumb__inner {
           font-weight: normal;
@@ -56,6 +61,10 @@
               color: #999;
             }
           }
+        }
+
+        .svg-icon {
+          color: #000000 !important;
         }
       }
     }

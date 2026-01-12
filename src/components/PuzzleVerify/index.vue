@@ -73,27 +73,33 @@
 </script>
 <style lang="less" scoped>
   .verify {
-    width: 100%;
-    height: 100%;
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 99999;
     .cover_bg {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      z-index: 99998;
+      z-index: 99;
       background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(1px);
     }
   }
   .verify_frame {
     position: fixed;
     top: 50%;
     left: 50%;
-    margin-left: -200px;
-    margin-top: -150px;
+    transform: translate(-50%, -50%);
     width: 400px;
     height: 300px;
     background: #ffffff;
-    border-radius: 4px;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     z-index: 9999;
     padding: 0 20px;
     .verify_title {

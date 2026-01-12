@@ -39,7 +39,7 @@ body.vab-theme-blue-white {
     @include container;
 
     .title,
-    .vab-icon {
+    .svg-icon {
       @include container;
     }
   }
@@ -52,7 +52,7 @@ body.vab-theme-blue-white {
     }
 
     .logo,
-    .vab-icon {
+    .svg-icon {
       @include container-column;
     }
   }

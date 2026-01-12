@@ -11,21 +11,8 @@ import MemberGroup from './components/memberGroup'
 import '@/vab'
 import './utils/flexible'
 import './utils/rem'
-import AMap from 'vue-amap'
-Vue.use(AMap)
-AMap.initAMapApiLoader({
-  key: '2937cdf83aa53b7f1ec7642d14e7a565',
-  plugin: [
-    'AMap.Scale',
-    'AMap.OverView',
-    'AMap.ToolBar',
-    'AMap.MapType',
-    'AMap.PlaceSearch',
-    'AMap.Geolocation',
-    'AMap.Geocoder',
-  ],
-  v: '1.4.4',
-})
+// 加载svg
+import '@/icons/index'
 /**
  * @description 正式环境默认使用mock，正式项目记得注释后再打包
  */

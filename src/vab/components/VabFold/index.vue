@@ -1,8 +1,8 @@
 <template>
-  <vab-icon
+  <svg-icon
     class="fold-unfold"
     :icon="collapse ? 'menu-unfold-line' : 'menu-fold-line'"
-    @click="toggleCollapse"
+    @click.native="toggleCollapse"
   />
 </template>
 

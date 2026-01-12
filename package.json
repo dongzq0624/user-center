@@ -1,8 +1,8 @@
 {
-  "name": "admin-pro",
-  "version": "2.0.9",
+  "name": "aoneng-user-center",
+  "version": "1.0.0",
   "private": true,
-  "author": "chuzhixin",
+  "author": "dongzhiqiang",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -106,5 +106,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vue-admin-beautiful/admin-pro.git"
+  },
+  "resolutions": {
+    "@achrinza/node-ipc": "^10.1.11"
   }
 }

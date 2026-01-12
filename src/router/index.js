@@ -51,6 +51,7 @@ export const asyncRoutes = [
     component: projectLayout,
     meta: {
       title: '个人中心',
+      icon: 'map-pin-user-line',
       hidden: true,
     },
     children: [
@@ -74,7 +75,7 @@ export const asyncRoutes = [
     component: projectLayout,
     meta: {
       title: '应用',
-      icon: 'app-store-fill',
+      icon: 'app-store',
       permissionId: 'application',
     },
     children: [

@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <router-view />
+    <!-- SVG sprite container -->
+    <div id="svg-sprite" style="display: none;"></div>
   </div>
 </template>
 

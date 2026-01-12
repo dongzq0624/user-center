@@ -22,7 +22,7 @@
               type="text"
             >
               <template #prefix>
-                <vab-icon icon="user-line" />
+                <svg-icon icon="user-line" />
               </template>
             </el-input>
           </el-form-item>
@@ -35,7 +35,7 @@
               type="text"
             >
               <template #prefix>
-                <vab-icon icon="smartphone-line" />
+                <svg-icon icon="smartphone-line" />
               </template>
             </el-input>
           </el-form-item>
@@ -46,7 +46,7 @@
               type="text"
             >
               <template #prefix>
-                <vab-icon icon="barcode-box-line" />
+                <svg-icon icon="barcode-box-line" />
               </template>
             </el-input>
             <el-button
@@ -66,7 +66,7 @@
               type="password"
             >
               <template #prefix>
-                <vab-icon icon="lock-line" />
+                <svg-icon icon="lock-line" />
               </template>
             </el-input>
           </el-form-item>

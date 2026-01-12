@@ -23,7 +23,7 @@
               :title="translateTitle(route.meta.title)"
             >
               <div>
-                <vab-icon
+                <svg-icon
                   v-if="route.meta.icon"
                   :icon="route.meta.icon"
                   :is-custom-svg="route.meta.isCustomSvg"
@@ -308,17 +308,27 @@
         height: $base-left-menu-width-min;
 
         > div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+
           svg {
-            position: relative;
-            top: 8px;
             display: block;
             width: $base-font-size-default + 4;
             height: $base-font-size-default + 4;
+            color: $base-color-white;
           }
 
           [class*='ri-'] {
             display: block;
             height: 20px;
+          }
+
+          span {
+            font-size: 12px;
+            text-align: center;
+            line-height: 1.2;
           }
         }
       }

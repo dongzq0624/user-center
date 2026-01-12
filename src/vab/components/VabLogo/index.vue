@@ -8,8 +8,8 @@
     <router-link to="/">
       <span class="logo">
         <!-- 使用自定义svg示例 -->
-        <!-- <vab-icon v-if="logo" :icon="logo" is-custom-svg /> -->
-        <img alt="" class="logo-img" src="@/assets/img/logo.png" />
+        <!-- <svg-icon v-if="logo" :icon="logo" is-custom-svg /> -->
+        <img alt="" class="logo-img" src="@/assets/img/logo-blue.png" />
       </span>
       <span
         class="title"

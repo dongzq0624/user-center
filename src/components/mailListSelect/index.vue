@@ -39,7 +39,7 @@
                     {{ getSingleName(selectedMember) }}
                   </div>
                   <div v-else class="default_portrait">
-                    <vab-icon icon="user-add-line" />
+                    <svg-icon icon="user-add-line" />
                   </div>
                 </div>
                 <div class="item_content">
@@ -77,7 +77,7 @@
                       {{ getSingleName(item) }}
                     </div>
                     <div v-else class="default_portrait">
-                      <vab-icon icon="user-add-line" />
+                      <svg-icon icon="user-add-line" />
                     </div>
                   </div>
                   <div class="item_content">
@@ -96,7 +96,7 @@
               <div class="selected_item">
                 <div class="item_portrait">
                   <div class="default_portrait">
-                    <vab-icon icon="user-add-line" />
+                    <svg-icon icon="user-add-line" />
                   </div>
                 </div>
                 <div class="item_content">

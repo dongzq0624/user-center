@@ -228,7 +228,7 @@
               :on-success="handelSuccess"
             >
               <el-button class="editor-img-plus" type="text">
-                <vab-icon icon="attachment-2" />
+                <svg-icon icon="attachment-2" />
                 上传附件
               </el-button>
             </el-upload>
@@ -254,7 +254,7 @@
               :on-success="onSuccess"
             >
               <el-button type="text">
-                <vab-icon icon="attachment-2" />
+                <svg-icon icon="attachment-2" />
                 上传附件
               </el-button>
             </el-upload>

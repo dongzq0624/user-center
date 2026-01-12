@@ -1,15 +1,27 @@
 <template>
   <div class="login-container">
-    <el-image class="image" :src="require('@/assets/img/logo.png')" />
+    <div class="left-panel">
+      <div class="logo-section">
+        <el-image class="image" :src="require('@/assets/img/logo-blue.png')" />
+      </div>
 
-    <div class="login_box">
-      <el-form
-        ref="form"
-        class="login-form"
-        label-position="left"
-        :model="form"
-        :rules="rules"
-      >
+      <div class="illustration"></div>
+
+      <div class="description">
+        <h1 class="title">欢迎使用统一用户管理平台</h1>
+        <p class="subtitle">安全、高效、便捷的用户管理系统</p>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="login_box">
+        <el-form
+          ref="form"
+          class="login-form"
+          label-position="left"
+          :model="form"
+          :rules="rules"
+        >
         <div class="title-tips">
           {{ translateTitle('统一用户管理平台') }}
         </div>
@@ -39,19 +51,14 @@
             <template #prefix>
               <span class="my_label">密码</span>
             </template>
-            <template v-if="passwordType === 'password'" #suffix>
-              <vab-icon
+            <template #suffix>
+              <span @click="handlePassword">
+                <svg-icon
                 class="show-password"
-                icon="eye-off-line"
-                @click="handlePassword"
+                :icon="passwordType === 'password' ? 'eye-line' : 'eye-off-line'"
               />
-            </template>
-            <template v-else #suffix>
-              <vab-icon
-                class="show-password"
-                icon="eye-line"
-                @click="handlePassword"
-              />
+              </span>
+        
             </template>
           </el-input>
         </el-form-item>
@@ -64,7 +71,7 @@
                   type="text"
                 >
                   <template #prefix>
-                    <vab-icon icon="barcode-box-line" />
+                    <svg-icon icon="barcode-box-line" />
                   </template>
                 </el-input>
                 <el-image class="code" :src="codeUrl" @click="changeCode" />
@@ -81,8 +88,17 @@
         <!-- <router-link to="/register">
                 <div style="margin-top: 20px">{{ translateTitle('注册') }}</div>
               </router-link> -->
-      </el-form>
+
+        <PuzzleVerify
+          v-show="verifyShow"
+          ref="PuzzleVerify"
+          @hideVerify="verifyShow = false"
+          @onSuccess="verifySuccess"
+        />
+        </el-form>
+      </div>
     </div>
+
     <!-- 密码过期,修改密码 -->
     <el-dialog title="提示" :visible.sync="dialogVisible" width="30%">
       <el-alert
@@ -114,13 +130,6 @@
         <el-button type="primary" @click="onSave">确 定</el-button>
       </span>
     </el-dialog>
-
-    <PuzzleVerify
-      v-show="verifyShow"
-      ref="PuzzleVerify"
-      @hideVerify="verifyShow = false"
-      @onSuccess="verifySuccess"
-    />
   </div>
 </template>
 
@@ -314,7 +323,7 @@
       },
       handlePassword() {
         this.passwordType === 'password'
-          ? (this.passwordType = '')
+          ? (this.passwordType = 'text')
           : (this.passwordType = 'password')
         this.$nextTick(() => {
           this.$refs.passwordRef.focus()
@@ -341,39 +350,161 @@
 <style lang="scss" scoped>
   .login-container {
     width: 100%;
-    height: 100%;
-    background: url('~@/assets/img/background.jpg') center center fixed
-      no-repeat;
-    background-size: cover;
+    height: 100vh;
+    background: #f8fafc;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    overflow: hidden;
+
+    .left-panel {
+      flex: 1;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 400px;
+      padding: 60px 40px;
+      box-shadow: 2px 0 20px rgba(0, 0, 0, 0.08);
+
+      .logo-section {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        z-index: 10;
+      }
+
+      .illustration {
+        width: 300px;
+        height: 250px;
+        background: url('~@/assets/svg/login-box-bg.svg') center center no-repeat;
+        background-size: contain;
+        margin-bottom: 40px;
+      }
+
+      .description {
+        text-align: center;
+        max-width: 360px;
+
+        .title {
+          font-size: 28px;
+          font-weight: 700;
+          color: #1a202c;
+          margin-bottom: 16px;
+          line-height: 1.3;
+        }
+
+        .subtitle {
+          font-size: 16px;
+          color: #718096;
+          line-height: 1.6;
+          margin-bottom: 12px;
+        }
+
+        .features {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          .feature-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #4a5568;
+
+            &::before {
+              content: '✓';
+              color: #48bb78;
+              font-weight: bold;
+              margin-right: 8px;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    .right-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      background: #ffffff;
+      min-width: 400px;
+    }
+
     .image {
       height: 50px;
-      position: absolute;
-      top: 40px;
-      left: 40px;
+      width: auto;
+    }
+  }
+
+  // 响应式设计
+  @media (max-width: 768px) {
+    .login-container {
+      flex-direction: column;
+
+      .left-panel {
+        flex: none;
+        min-width: auto;
+        padding: 40px 20px;
+
+        .illustration {
+          width: 200px;
+          height: 150px;
+          margin-bottom: 30px;
+        }
+
+        .description {
+          .title {
+            font-size: 24px;
+          }
+
+          .subtitle {
+            font-size: 14px;
+          }
+        }
+
+        .logo-section {
+          top: 20px;
+          left: 20px;
+        }
+      }
+
+      .right-panel {
+        flex: 1;
+        padding: 20px;
+      }
+    }
+
+    .login-form {
+      max-width: 100%;
+      padding: 30px 20px;
     }
   }
   .login_box {
-    width: 480px;
+    width: 100%;
+    max-width: 580px;
   }
 
   .login-form {
-    box-shadow: 0px 0px 16px 0px rgba(11, 58, 103, 0.6);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
-    padding: 30px 50px 50px 40px;
-    margin-bottom: 60px;
+    padding: 40px 50px;
     overflow: hidden;
     background-color: #fff;
-    background-size: 100% 100%;
+    width: 100%;
+    max-width: 550px;
+    border: 1px solid #e2e8f0;
     .title-tips {
-      font-size: 28px;
-      font-family: 'Microsoft YaHei';
-      font-weight: bold;
-      color: #191f25;
+      font-size: 24px;
+      font-family: 'Microsoft YaHei', sans-serif;
+      font-weight: 600;
+      color: #2d3748;
       text-align: center;
+      margin-bottom: 10px;
     }
     .welcome {
       font-size: 24px;
@@ -383,25 +514,38 @@
       text-align: center;
     }
     .my_label {
-      font-size: 18px;
-      font-family: 'Microsoft YaHei';
-      font-weight: 400;
-      color: #191f25;
-      line-height: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #4a5568;
+      position: absolute;
+      width: 50px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      pointer-events: none;
     }
 
     .login-btn {
-      display: inherit;
       width: 100%;
       height: 50px;
-      margin-top: 48px;
-      border: 0;
-      background: #005dad;
-      span {
-        font-size: 20px;
-      }
+      margin-top: 30px;
+      border: none;
+      border-radius: 12px;
+      background: #3182ce;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+
       &:hover {
-        opacity: 0.9;
+        background: #2c5282;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
+      }
+
+      &:active {
+        transform: translateY(0);
       }
 
       .forget-passwordword {
@@ -455,12 +599,19 @@
 
     .show-password {
       position: absolute;
-      right: 25px;
-      left: -35px;
-      font-size: 16px;
-      color: #d7dee3;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: #a0aec0;
       cursor: pointer;
       user-select: none;
+      z-index: 2;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #667eea;
+      }
     }
 
     ::v-deep {
@@ -495,15 +646,24 @@
 
         input {
           height: 50px;
-          padding-left: 55px;
-          font-size: $base-font-size-default;
-          line-height: 58px;
-          background: #fff;
-          border-bottom: 2px #e3e4e4 solid;
-          border-top: 0;
-          border-left: 0;
-          border-right: 0;
-          border-radius: 0;
+          min-width: 300px;
+          padding: 0 20px 0 55px;
+          font-size: 16px;
+          border: 1px solid #e1e5e9;
+          border-radius: 12px;
+          background: rgba(255, 255, 255, 0.9);
+          transition: all 0.3s ease;
+          color: #2c3e50;
+
+          &:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: #fff;
+          }
+
+          &::placeholder {
+            color: #a0aec0;
+          }
         }
       }
 

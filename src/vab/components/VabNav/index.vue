@@ -19,7 +19,7 @@
             <template v-for="(route, index) in handleRoutes">
               <el-tab-pane :key="index + route.name" :name="route.name">
                 <span slot="label">
-                  <vab-icon
+                  <svg-icon
                     v-if="route.meta.icon"
                     :icon="route.meta.icon"
                     :is-custom-svg="route.meta.isCustomSvg"
@@ -122,9 +122,9 @@
       >
         <div class="right-panel">
           <vab-error-log />
-          <vab-full-screen />
+          <vab-full-screen width="20" height="20" style="margin-right: 15px" />
           <!--<vab-language />-->
-          <vab-refresh />
+          <vab-refresh width="20" height="20" />
           <vab-avatar />
         </div>
       </el-col>

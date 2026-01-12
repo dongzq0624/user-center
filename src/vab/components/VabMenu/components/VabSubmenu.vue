@@ -11,11 +11,11 @@
     :popper-append-to-body="false"
   >
     <template slot="title">
-      <vab-icon
+      <svg-icon
         v-if="itemOrMenu.meta && itemOrMenu.meta.icon"
         :icon="itemOrMenu.meta.icon"
-        :is-custom-svg="itemOrMenu.meta.isCustomSvg"
         :title="translateTitle(itemOrMenu.meta.title)"
+        size="16"
       />
       <span :title="translateTitle(itemOrMenu.meta.title)">
         {{ translateTitle(itemOrMenu.meta.title) }}

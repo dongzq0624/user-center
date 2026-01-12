@@ -453,9 +453,9 @@
         overflow: hidden;
 
         ::v-deep .el-card__header {
-          background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-          color: white;
-          border-bottom: none;
+          background: #ffffff;
+          color: #333333;
+          border-bottom: 1px solid #e9ecef;
           padding: 20px 24px;
 
           .card-header {
@@ -543,7 +543,7 @@
                 width: 40px;
                 height: 40px;
                 border-radius: 50%;
-                background: linear-gradient(135deg, #667eea, #764ba2);
+                background: linear-gradient(135deg, #409eff, #66b3ff);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -579,9 +579,9 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
         ::v-deep .el-card__header {
-          background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-          color: white;
-          border-bottom: none;
+          background: #ffffff;
+          color: #333333;
+          border-bottom: 1px solid #e9ecef;
           padding: 20px 24px;
 
           .card-header {
@@ -658,7 +658,7 @@
 
                     i {
                       font-size: 18px;
-                      color: #667eea;
+                      color: #409eff;
                     }
                   }
 
@@ -680,12 +680,12 @@
                         font-size: 14px;
 
                         &:focus {
-                          border-color: #667eea;
-                          box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+                          border-color: #409eff;
+                          box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.1);
                         }
 
                         &:hover {
-                          border-color: #667eea;
+                          border-color: #409eff;
                         }
 
                         &::placeholder {
@@ -720,16 +720,16 @@
                             cursor: pointer;
 
                             &:hover {
-                              border-color: #667eea;
-                              background: rgba(102, 126, 234, 0.05);
+                              border-color: #409eff;
+                              background: rgba(64, 158, 255, 0.05);
                             }
                           }
 
                           &.is-checked {
                             .el-radio__label {
-                              border-color: #667eea;
-                              background: rgba(102, 126, 234, 0.1);
-                              color: #667eea;
+                              border-color: #409eff;
+                              background: rgba(64, 158, 255, 0.1);
+                              color: #409eff;
                               font-weight: 600;
                             }
                           }
@@ -746,19 +746,19 @@
                     border-radius: 8px;
                     background: linear-gradient(
                       135deg,
-                      #667eea 0%,
-                      #764ba2 100%
+                      #409eff 0%,
+                      #66b3ff 100%
                     );
                     border: none;
                     font-weight: 500;
                     padding: 12px 32px;
                     font-size: 16px;
                     transition: all 0.3s ease;
-                    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+                    box-shadow: 0 4px 12px rgba(64, 158, 255, 0.3);
 
                     &:hover {
                       transform: translateY(-1px);
-                      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+                      box-shadow: 0 6px 20px rgba(64, 158, 255, 0.4);
                     }
 
                     &:active {

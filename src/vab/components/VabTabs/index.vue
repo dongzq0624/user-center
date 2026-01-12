@@ -23,13 +23,13 @@
           @contextmenu.prevent="openMenu($event, item)"
         >
           <template v-if="theme.showTabsIcon">
-            <vab-icon
+            <svg-icon
               v-if="item.meta && item.meta.icon"
               :icon="item.meta.icon"
               :is-custom-svg="item.meta.isCustomSvg"
             />
             <!--  如果没有图标那么取第二级的图标 -->
-            <vab-icon v-else :icon="item.parentIcon" />
+            <svg-icon v-else :icon="item.parentIcon" />
           </template>
           <span>{{ translateTitle(item.meta.title) }}</span>
         </span>
@@ -46,25 +46,25 @@
       <template #dropdown>
         <el-dropdown-menu class="tabs-more">
           <el-dropdown-item command="closeOthersTabs">
-            <vab-icon icon="close-line" />
+            <svg-icon icon="close-line" />
             <span>
               {{ translateTitle('关闭其他') }}
             </span>
           </el-dropdown-item>
           <el-dropdown-item command="closeLeftTabs">
-            <vab-icon icon="arrow-left-line" />
+            <svg-icon icon="arrow-left-line" />
             <span>
               {{ translateTitle('关闭左侧') }}
             </span>
           </el-dropdown-item>
           <el-dropdown-item command="closeRightTabs">
-            <vab-icon icon="arrow-right-line" />
+            <svg-icon icon="arrow-right-line" />
             <span>
               {{ translateTitle('关闭右侧') }}
             </span>
           </el-dropdown-item>
           <el-dropdown-item command="closeAllTabs">
-            <vab-icon icon="close-line" />
+            <svg-icon icon="close-line" />
             <span>
               {{ translateTitle('关闭全部') }}
             </span>
@@ -82,7 +82,7 @@
         :class="{ 'is-disabled': visitedRoutes.length === 1 }"
         @click="closeOthersTabs"
       >
-        <vab-icon icon="close-line" />
+        <svg-icon icon="close-line" />
         <span>{{ translateTitle('关闭其他') }}</span>
       </li>
       <li
@@ -90,7 +90,7 @@
         :class="{ 'is-disabled': !visitedRoutes.indexOf(hoverRoute) }"
         @click="closeLeftTabs"
       >
-        <vab-icon icon="arrow-left-line" />
+        <svg-icon icon="arrow-left-line" />
         <span>{{ translateTitle('关闭左侧') }}</span>
       </li>
       <li
@@ -101,11 +101,11 @@
         }"
         @click="closeRightTabs"
       >
-        <vab-icon icon="arrow-right-line" />
+        <svg-icon icon="arrow-right-line" />
         <span>{{ translateTitle('关闭右侧') }}</span>
       </li>
       <li class="el-dropdown-menu__item" @click="closeAllTabs">
-        <vab-icon icon="close-line" />
+        <svg-icon icon="close-line" />
         <span>{{ translateTitle('关闭全部') }}</span>
       </li>
     </ul>

@@ -4,7 +4,7 @@
       <el-avatar class="user-avatar" :src="avatar" />
       <div class="user-name">
         <span class="hidden-xs-only">{{ username }}</span>
-        <vab-icon
+        <svg-icon
           class="vab-dropdown"
           :class="{ 'vab-dropdown-active': active }"
           icon="arrow-down-s-line"
@@ -14,12 +14,16 @@
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item command="personalCenter">
-          <vab-icon icon="user-line" />
-          <span>{{ translateTitle('个人中心') }}</span>
+          <div class="dropdown-content">
+            <svg-icon icon="user-line" />
+            <span>{{ translateTitle('个人中心') }}</span>
+          </div>
         </el-dropdown-item>
         <el-dropdown-item command="logout">
-          <vab-icon icon="logout-circle-r-line" />
-          {{ translateTitle('退出登录') }}
+          <div class="dropdown-content">
+            <svg-icon icon="logout-circle-r-line" />
+            <span>{{ translateTitle('退出登录') }}</span>
+          </div>
         </el-dropdown-item>
       </el-dropdown-menu>
     </template>
@@ -89,6 +93,39 @@
     :deep() {
       .el-avatar > img {
         width: 100%;
+      }
+
+      .el-dropdown-menu__item {
+        padding: 0;
+        height: 40px !important;
+        line-height: 40px !important;
+
+        .dropdown-content {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding: 0 20px;
+          height: 100%;
+
+          svg {
+            margin-right: 8px;
+            margin-top: 3px;
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          span {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            line-height: 1.2;
+          }
+        }
       }
     }
     .user-name {

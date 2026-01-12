@@ -4,7 +4,7 @@
       :value="errorLogs.length"
       @click.native="dialogTableVisible = true"
     >
-      <vab-icon icon="bug-line" />
+      <svg-icon icon="bug-line" />
     </el-badge>
 
     <el-dialog

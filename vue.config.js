@@ -86,15 +86,21 @@ module.exports = {
   },
   chainWebpack(config) {
     config.resolve.symlinks(true)
-    config.module.rule('svg').exclude.add(resolve('src/icon'))
-    config.module
-      .rule('vabIcon')
-      .test(/\.svg$/)
-      .include.add(resolve('src/icon'))
-      .end()
-      .use('svg-sprite-loader')
-      .loader('svg-sprite-loader')
-      .options({ symbolId: 'vab-icon-[name]' })
+
+     // SVG 图标系统配置
+     config.module.rule('svg').exclude.add(resolve('src/icons')).end()
+     config.module
+       .rule('icons')
+       .test(/\.svg$/)
+       .include.add(resolve('src/icons'))
+       .end()
+       .use('svg-sprite-loader')
+       .loader('svg-sprite-loader')
+       .options({
+         symbolId: 'icon-[name]',
+       })
+       .end()
+
     config.when(process.env.NODE_ENV === 'development', (config) => {
       config.devtool('source-map')
     })
